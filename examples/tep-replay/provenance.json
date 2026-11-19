@@ -1,0 +1,55 @@
+{
+  "artifact": "visible-trace.csv",
+  "origin": "saved_team_generated_simulation",
+  "projection": "All 800 rows; exact original text values for time and six selected visible signals.",
+  "columns": [
+    "time_h",
+    "keep_reactor_temp_C",
+    "keep_reactor_pressure_kPag",
+    "keep_product_flow_m3_h",
+    "lower_reactor_temp_C",
+    "lower_reactor_pressure_kPag",
+    "lower_product_flow_m3_h"
+  ],
+  "original_csv_sha256": "1797f4bd77bf055e48016027688afd53b8d2715a9ad6870be777fde2037256cd",
+  "visible_csv_sha256": "90b7bc54d19bed3654faa900f447c013c96924d53af1bc8560a58b430b5753a5",
+  "regenerator_sha256": "da839af2a1939ab08903305f9c85dd1b4fe0b54f44ad0f8a78a3af15fcabe9d3",
+  "model": {
+    "project": "khalidlabs/tep-studio",
+    "source_commit": "852f0c69ab974540750d61bd1dbfafd56bfd80bb",
+    "python": "3.13.5",
+    "machine": "arm64",
+    "packages": {
+      "tep-studio": "0.2.0",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "pandas": "2.3.3"
+    }
+  },
+  "model_source": "https://github.com/khalidlabs/tep-studio/tree/852f0c69ab974540750d61bd1dbfafd56bfd80bb",
+  "measurement_definitions": "https://github.com/khalidlabs/tep-studio/blob/852f0c69ab974540750d61bd1dbfafd56bfd80bb/src/tep_studio/simulation/schema.py#L407-L429",
+  "paired_experiment": {
+    "mode": "mode1",
+    "controller": "closed loop; package default controller",
+    "decision_sim_h": 2.0,
+    "horizon_sim_h": 8.0,
+    "target_keep_m3_h": 22.94873048163469,
+    "target_lower_m3_h": 22.84873048163469,
+    "seed": 1431655765.0,
+    "control_interval_h": 0.01,
+    "solver": "RK4",
+    "fixed_step_h": 0.0005
+  },
+  "scope": "Retrospective evaluator provenance. Use operator-view.json for the as-of RAG query.",
+  "publication_review": {
+    "payload": "team-authored replay, team-generated selected numerical outputs, source links",
+    "external_source_code_copied": false,
+    "private_team_documents_copied": false,
+    "credentials_or_model_weights_copied": false
+  },
+  "license_source": "https://github.com/khalidlabs/tep-studio/blob/852f0c69ab974540750d61bd1dbfafd56bfd80bb/LICENSE",
+  "limits": [
+    "This is one saved experiment; full simulator state is not present in the selected CSV.",
+    "The selected CSV lacks reactor level, reactor cooling-water outlet temperature, quality flags and alarm lifecycle."
+  ]
+}

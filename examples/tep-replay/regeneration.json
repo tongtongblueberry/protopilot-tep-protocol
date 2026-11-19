@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checks": {
+    "fresh_regeneration_csv_matches_original": true,
+    "fresh_regeneration_results_match_original": true,
+    "fresh_full_state_repeat": true,
+    "fresh_predecision_all_state_columns_equal": true,
+    "fresh_disturbance_commands_equal": true
+  },
+  "run_count": 3,
+  "recorded_rows_per_run": 800,
+  "compared_columns": 160,
+  "predecision_rows": 200,
+  "trace_sha256": "1797f4bd77bf055e48016027688afd53b8d2715a9ad6870be777fde2037256cd",
+  "runtime": {
+    "project": "khalidlabs/tep-studio",
+    "source_commit": "852f0c69ab974540750d61bd1dbfafd56bfd80bb",
+    "python": "3.13.5",
+    "machine": "arm64",
+    "packages": {
+      "tep-studio": "0.2.0",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "pandas": "2.3.3"
+    }
+  },
+  "execution": "Local CPU, existing pinned TEP Studio environment, regenerate_trace.py. This receipt concerns paired simulation and repeatability."
+}

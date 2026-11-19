@@ -1,0 +1,6 @@
+[
+  {"id":"alarm-events","query":"How should the operator verify which reactor temperature and pressure alarms are active, cleared or acknowledged against the raw alarm event history?","relevant":["RC01-S1"]},
+  {"id":"valid-context","query":"Before using this reactor procedure, verify the operating mode, procedure revision, measurement timestamp, quality and units.","relevant":["RC01-S2"]},
+  {"id":"missing-clue","query":"Which missing measurement distinguishes warm incoming coolant from insufficient cooling water flow, and what hypotheses should be recorded?","relevant":["RC01-S3"]},
+  {"id":"follow-up","query":"After maintaining baseline control, monitor newly published observations and check how the event ends.","relevant":["RC01-S5"]}
+]

@@ -1,0 +1,185 @@
+{
+  "scope": "as-of visible query retrieval, with no procedure eligibility or decision call",
+  "query_en": "At simulation hour 2, reactor temperature is 120.389 degC and reactor pressure is 2707.94 kPa gauge. Reactor level, reactor cooling water outlet temperature, measurement quality and recorded alarm history are unavailable in this view. Which observations and procedure applicability checks are required before giving guidance?",
+  "retrieval": {
+    "hits": [
+      {
+        "id": "RC01-S3",
+        "score": 16.58241844177246,
+        "bm25_rank": 1,
+        "dense_rank": null,
+        "rrf_score": null,
+        "rerank_score": null,
+        "rank": 1
+      },
+      {
+        "id": "APM-STICTION",
+        "score": 16.463050842285156,
+        "bm25_rank": 2,
+        "dense_rank": null,
+        "rrf_score": null,
+        "rerank_score": null,
+        "rank": 2
+      },
+      {
+        "id": "TEP-SIGNALS",
+        "score": 16.213050842285156,
+        "bm25_rank": 3,
+        "dense_rank": null,
+        "rrf_score": null,
+        "rerank_score": null,
+        "rank": 3
+      }
+    ],
+    "timing_ms": {
+      "prepare": 0.0031660019885748625,
+      "query_embedding": 0.0,
+      "retrieval": 0.33737500780262053,
+      "rerank": 0.0,
+      "total": 0.44429200352169573
+    },
+    "execution": {
+      "requested_mode": "bm25",
+      "executed_mode": "bm25",
+      "backend": "qdrant_local_memory",
+      "device": "cpu",
+      "dtype": null,
+      "models": {},
+      "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+      "candidate_limit": 9,
+      "filters": null,
+      "preparation_ms": {
+        "bm25_index": 4.548583005089313,
+        "bge_load": 0.0,
+        "dense_index": 0.0,
+        "reranker_load": 0.0
+      }
+    },
+    "trace": {
+      "bm25": [
+        {
+          "id": "RC01-S3",
+          "score": 16.58241844177246
+        },
+        {
+          "id": "APM-STICTION",
+          "score": 16.463050842285156
+        },
+        {
+          "id": "TEP-SIGNALS",
+          "score": 16.213050842285156
+        },
+        {
+          "id": "TEP-SEPARATOR",
+          "score": 9.12850570678711
+        },
+        {
+          "id": "RC01-S2",
+          "score": 8.955910682678223
+        },
+        {
+          "id": "RC01-S1",
+          "score": 4.859928607940674
+        },
+        {
+          "id": "RC01-S4",
+          "score": 4.140499591827393
+        },
+        {
+          "id": "RC01-S5",
+          "score": 2.648519277572632
+        },
+        {
+          "id": "APM-LOSTFEED",
+          "score": 0.8297730684280396
+        }
+      ],
+      "dense": [],
+      "candidates": [
+        {
+          "id": "RC01-S3",
+          "score": 16.58241844177246,
+          "bm25_rank": 1,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 1
+        },
+        {
+          "id": "APM-STICTION",
+          "score": 16.463050842285156,
+          "bm25_rank": 2,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 2
+        },
+        {
+          "id": "TEP-SIGNALS",
+          "score": 16.213050842285156,
+          "bm25_rank": 3,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 3
+        },
+        {
+          "id": "TEP-SEPARATOR",
+          "score": 9.12850570678711,
+          "bm25_rank": 4,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 4
+        },
+        {
+          "id": "RC01-S2",
+          "score": 8.955910682678223,
+          "bm25_rank": 5,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 5
+        },
+        {
+          "id": "RC01-S1",
+          "score": 4.859928607940674,
+          "bm25_rank": 6,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 6
+        },
+        {
+          "id": "RC01-S4",
+          "score": 4.140499591827393,
+          "bm25_rank": 7,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 7
+        },
+        {
+          "id": "RC01-S5",
+          "score": 2.648519277572632,
+          "bm25_rank": 8,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 8
+        },
+        {
+          "id": "APM-LOSTFEED",
+          "score": 0.8297730684280396,
+          "bm25_rank": 9,
+          "dense_rank": null,
+          "rrf_score": null,
+          "rerank_score": null,
+          "rank": 9
+        }
+      ]
+    }
+  },
+  "zoro_status": "NOT_RUN",
+  "agent_invoked": false
+}

@@ -1,0 +1,4 @@
+qdrant-client==1.16.2
+transformers==4.57.1
+torch==2.8.0
+sentencepiece==0.2.1

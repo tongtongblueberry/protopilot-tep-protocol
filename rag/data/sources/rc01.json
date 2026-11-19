@@ -1,0 +1,155 @@
+{
+  "card_id": "RC-01",
+  "revision": "r2.fixture.1",
+  "type": "SYNTHETIC_RESEARCH_ONLY",
+  "title": "반응기 냉각 관련 이상 관측과 판단",
+  "purpose": "가시 신호로 적용 가능한 근거와 다음 확인을 식별하고, 판단 근거가 부족하면 명시한다.",
+  "model_rev": "RC01_FIX_MODEL_1",
+  "controller_rev": "RC01_FIX_READONLY_1",
+  "sensor_contract_rev": "TEP_BASE_TAG_SUBSET_FIXTURE_1",
+  "mode_scope": [
+    "RC01_FIX_M1"
+  ],
+  "affected_unit": "TEP_REACTOR",
+  "required_observations": [
+    {
+      "tag": "XMEAS(7)",
+      "unit": "kPa(g)",
+      "meaning": "반응기 게이지 압력",
+      "quality": "GOOD",
+      "max_age_ticks_inclusive": 1
+    },
+    {
+      "tag": "XMEAS(8)",
+      "unit": "%",
+      "meaning": "반응기 표시 수위",
+      "quality": "GOOD",
+      "max_age_ticks_inclusive": 1
+    },
+    {
+      "tag": "XMEAS(9)",
+      "unit": "°C",
+      "meaning": "반응기 온도",
+      "quality": "GOOD",
+      "max_age_ticks_inclusive": 1
+    },
+    {
+      "tag": "XMEAS(21)",
+      "unit": "°C",
+      "meaning": "반응기 냉각수 출구 온도",
+      "quality": "GOOD",
+      "max_age_ticks_inclusive": 1
+    }
+  ],
+  "not_required_or_assumed_available": {
+    "XMV(10)": "선택 공개 시 제어기 명령으로만 해석한다. 실제 밸브 위치·유량 근거로 사용하지 않는다.",
+    "XMEAS(46)": "별도 확장판의 입구 온도.",
+    "XMEAS(47)": "별도 확장판의 모델 보고 유량."
+  },
+  "required_tools": [
+    "versioned alarm event list",
+    "as-of observation list",
+    "document registry and review trace"
+  ],
+  "role": "운영자 역할 참가자/규칙의 기본 시험",
+  "execution_authority": "ADVISORY_ONLY",
+  "precautions": [
+    "모든 수치는 합성 입력/출력 시험용이다.",
+    "고장 ID·미래 궤적 없이 판단한다.",
+    "실제 냉각계 부품이나 안전 상태는 이 카드로 확정하지 않는다."
+  ],
+  "document_validity": "해당 문서 스냅샷의 확정 card_id/revision/content_sha256 및 모델/제어기/태그 버전과 현재 관측 모드를 함께 대조.",
+  "review_owner": "해커톤 절차 작성/검토 분기",
+  "review_state": "PHASE_B_CANDIDATE",
+  "change_record": "r2.fixture.1: 연구 카드와 정적 개발용 값 동시 고정 제안. 동적 프로파일은 미확정.",
+  "source_refs": {
+    "DV": {
+      "url": "https://users.abo.fi/khaggblo/RS/Downs.pdf",
+      "locator": "pp.248–250 Tables 3–6, 8; p.253 Constraints and User’s interface",
+      "applies_to": "태그 의미·단위·샘플링·벤치마크 조건"
+    },
+    "H1": {
+      "url": "https://www.hse.gov.uk/comah/sragtech/techmeascontsyst.htm",
+      "locator": "Alarm systems — Alarm settings, Human interface, Alarm processing; Protection systems",
+      "applies_to": "알람 조건, 단위, 시각·상태와 우선순위 근거; 원시 이력과 표시 그룹 구분"
+    },
+    "H2": {
+      "url": "https://www.hse.gov.uk/comah/sragtech/techmeasoperatio.htm",
+      "locator": "Limits of Intervention, Control Systems Interface",
+      "applies_to": "사람 판단·자동 제어의 권한과 개입 경계"
+    },
+    "H3": {
+      "url": "https://www.hse.gov.uk/humanfactors/assets/docs/core4.pdf",
+      "locator": "pp.1–2 Reliability and usability of procedures",
+      "applies_to": "목적·주의·초기 조건·참고·순서, 단계당 한 작업"
+    }
+  },
+  "eligible_alarm_definitions": [
+    "AL-01T",
+    "AL-01P"
+  ],
+  "entry_conditions": {
+    "APPLICABLE": "활성 공개 알람이 있고, 문서 버전·모드가 맞으며, 필요한 가시 관측이 모두 최신·유한·정상 단위다.",
+    "INAPPLICABLE": "정상 무알람, 모드가 다른 문서, 불일치 revision/hash 또는 종료된 에피소드는 해당 카드를 적용하지 않는다.",
+    "UNDETERMINED": "알람은 있지만 그에 맞는 문서/가용 관측/판단 시간이 부족하다.",
+    "no_actuation": "실제 연구 동역학 조치 카탈로그가 비어 있어도 적합한 감시 안내는 가능하다."
+  },
+  "diagnostic_rule": {
+    "visible_signals": "온도/압력·수위·냉각수 출구 반응은 관측 증거이고 특정 원인 ID가 아니다.",
+    "hypotheses_if_ambiguous": [
+      "COOLANT_INLET_CONDITION_CHANGE",
+      "COOLING_ACTUATION_OR_OTHER_PROCESS_CAUSE"
+    ],
+    "unresolved_reason": "기본 모드에 입구 온도·실제 작동 위치 또는 유량이 없어 냉각 관련 두 원인을 일의적으로 구별할 수 없다.",
+    "fields": [
+      "candidate_causes",
+      "supports_by_obs_id",
+      "contradicts_by_obs_id",
+      "cannot_distinguish_because"
+    ]
+  },
+  "steps": [
+    {
+      "step": 1,
+      "verb": "CHECK_ALARM",
+      "instruction": "공개된 알람의 대상, 발생·복귀·인지 상태와 원시 이벤트를 확인한다."
+    },
+    {
+      "step": 2,
+      "verb": "CHECK_CONTEXT",
+      "instruction": "모드·카드 출처와 버전·관측 시점·품질·단위를 대조한다."
+    },
+    {
+      "step": 3,
+      "verb": "RECORD_HYPOTHESES",
+      "instruction": "가능한 원인과 판별에 부족한 단서를 구분한다."
+    },
+    {
+      "step": 4,
+      "verb": "ISSUE_DECISION",
+      "instruction": "정상은 MONITOR, 근거가 있고 선택할 조치가 없으면 KEEP_BASELINE 또는 근거 있는 MONITOR, 문서·관측이 부족하면 이유와 다음 확인을 붙여 ABSTAIN을 기록한다."
+    },
+    {
+      "step": 5,
+      "verb": "MONITOR_LATER_OBSERVATIONS",
+      "instruction": "기준 제어를 유지하면서 후속 출판 관측과 실제 종료를 확인한다."
+    }
+  ],
+  "next_checks": [
+    "MONITOR_NEXT_PUBLIC_SAMPLE",
+    "CONFIRM_REQUIRED_TAG_OR_QUALITY",
+    "RETRIEVE_CURRENT_COMPATIBLE_CARD",
+    "REVIEW_AMBIGUOUS_CAUSE"
+  ],
+  "effect_observation": {
+    "for_no_request": "추가 효과를 추정하지 않는다. 이후 공개 관측과 종료만 기록한다.",
+    "dynamic_action_expected_tags_and_window": null
+  },
+  "dynamic_profile": {
+    "enabled": false,
+    "alarm_parameters": null,
+    "action_catalog": [],
+    "response_deadline_status": "NOT_IDENTIFIED",
+    "rationale": "실제 폐루프, 허용 목표, 적용 영수증, 효과 관측 창을 별도 파일럿과 검증으로 정한다."
+  }
+}

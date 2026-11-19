@@ -1,0 +1,121 @@
+{
+  "origin": "tep_replay",
+  "analysis_scope": "saved visible trace comparison",
+  "n_samples_per_arm": 800,
+  "record_window_h": [
+    0.01,
+    7.999999999999874
+  ],
+  "postdecision_window_h": [
+    2.0000000000000013,
+    7.999999999999874
+  ],
+  "integration_method": "trapezoidal integral over recorded times, including decision boundary",
+  "clock_tolerance_h": 1e-09,
+  "visible_predecision_samples": 200,
+  "visible_predecision_values_equal": true,
+  "reference_source": {
+    "uri": "https://users.abo.fi/khaggblo/RS/Downs.pdf#page=5",
+    "locator": "Downs and Vogel (1993), p. 249, Table 6, normal operating high limits",
+    "scope": "Benchmark reference ranges; recorded alarm settings are not supplied."
+  },
+  "reference_limits": {
+    "reactor_temp_C": {
+      "upper": 150.0,
+      "unit": "degC",
+      "tag": "XMEAS(9)"
+    },
+    "reactor_pressure_kPag": {
+      "upper": 2895.0,
+      "unit": "kPa(g)",
+      "tag": "XMEAS(7)"
+    }
+  },
+  "arms": {
+    "keep": {
+      "reactor_temp_C": {
+        "min": 120.30446776245321,
+        "max": 120.47722772106891,
+        "end": 120.43220967821496,
+        "mean": 120.4014077822578
+      },
+      "reactor_pressure_kPag": {
+        "min": 2698.988713091935,
+        "max": 2712.818013502991,
+        "end": 2706.918355706527,
+        "mean": 2704.593614624897
+      },
+      "product_flow_m3_h": {
+        "min": 22.49091132258783,
+        "max": 23.31093493988088,
+        "end": 22.905599641391895,
+        "mean": 22.8584941237758
+      },
+      "product_volume_m3": 137.15096474265187,
+      "reference_range_screen_entire_record": {
+        "reactor_temp_C": {
+          "samples_above_upper": 0,
+          "upward_crossings_between_samples": 0,
+          "first_sample_above_upper_h": null,
+          "maximum": 121.08125431533199
+        },
+        "reactor_pressure_kPag": {
+          "samples_above_upper": 0,
+          "upward_crossings_between_samples": 0,
+          "first_sample_above_upper_h": null,
+          "maximum": 2712.818013502991
+        }
+      }
+    },
+    "lower": {
+      "reactor_temp_C": {
+        "min": 120.30357479930663,
+        "max": 120.4769484711302,
+        "end": 120.43234115436779,
+        "mean": 120.40080477200743
+      },
+      "reactor_pressure_kPag": {
+        "min": 2699.055448347671,
+        "max": 2712.018567756003,
+        "end": 2707.0061528778115,
+        "mean": 2704.610257977611
+      },
+      "product_flow_m3_h": {
+        "min": 22.4103942611638,
+        "max": 23.29433465811394,
+        "end": 22.82396198751202,
+        "mean": 22.799508973600087
+      },
+      "product_volume_m3": 136.7970538415976,
+      "reference_range_screen_entire_record": {
+        "reactor_temp_C": {
+          "samples_above_upper": 0,
+          "upward_crossings_between_samples": 0,
+          "first_sample_above_upper_h": null,
+          "maximum": 121.08125431533199
+        },
+        "reactor_pressure_kPag": {
+          "samples_above_upper": 0,
+          "upward_crossings_between_samples": 0,
+          "first_sample_above_upper_h": null,
+          "maximum": 2712.018567756003
+        }
+      }
+    }
+  },
+  "lower_minus_keep": {
+    "product_volume_m3": -0.35391090105426315,
+    "product_volume_litres": -353.91090105426315,
+    "max_reactor_temp_C": -0.0002792499387140879,
+    "max_reactor_pressure_kPag": -0.7994457469881127
+  },
+  "recorded_alarm_history": "UNKNOWN",
+  "measurement_quality_flags": "NOT_RECORDED",
+  "limits": [
+    "Only sampled visible values are screened; between-sample extrema are unknown.",
+    "The input has no alarm lifecycle or quality flags; range screening does not establish alarms.",
+    "Prefix equality is checked on the six exported signals; full-state pairing requires the generating experiment.",
+    "Results describe this saved pair and do not establish an optimal control action."
+  ],
+  "input_sha256": "90b7bc54d19bed3654faa900f447c013c96924d53af1bc8560a58b430b5753a5"
+}

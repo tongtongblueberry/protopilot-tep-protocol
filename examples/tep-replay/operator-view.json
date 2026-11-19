@@ -1,0 +1,29 @@
+{
+  "origin": "tep_replay",
+  "arm": "keep",
+  "cutoff_sim_h": 2.0,
+  "clock_tolerance_h": 1e-09,
+  "observations": [
+    {
+      "tag": "XMEAS(9)",
+      "value": 120.38922462766541,
+      "unit": "degC",
+      "sampled_at_sim_h": 2.0000000000000013,
+      "quality": "NOT_RECORDED"
+    },
+    {
+      "tag": "XMEAS(7)",
+      "value": 2707.937513914968,
+      "unit": "kPa(g)",
+      "sampled_at_sim_h": 2.0000000000000013,
+      "quality": "NOT_RECORDED"
+    }
+  ],
+  "missing_required_tags": [
+    "XMEAS(8)",
+    "XMEAS(21)"
+  ],
+  "recorded_alarm_history": "UNKNOWN",
+  "procedure_registration": "NOT_REGISTERED",
+  "query_en": "At simulation hour 2, reactor temperature is 120.389 degC and reactor pressure is 2707.94 kPa gauge. Reactor level, reactor cooling water outlet temperature, measurement quality and recorded alarm history are unavailable in this view. Which observations and procedure applicability checks are required before giving guidance?"
+}

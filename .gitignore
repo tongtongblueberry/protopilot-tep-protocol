@@ -1,0 +1,10 @@
+.venv/
+.models/
+__pycache__/
+*.pyc
+.DS_Store
+local-output/
+remote_output/
+*.part
+.server-cache/
+.ephemeral-home/

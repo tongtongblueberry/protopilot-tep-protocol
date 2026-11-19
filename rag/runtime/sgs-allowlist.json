@@ -1,0 +1,15 @@
+{
+  "app.py": "code",
+  "agent.py": "code",
+  "retrieval.py": "code",
+  "run_suite.py": "code",
+  "runtime/sgs_entry.py": "code",
+  "runtime/fetch_models.py": "code",
+  "runtime/requirements.txt": "code",
+  "data/sources/rc01.json": "synthetic",
+  "data/sources/episode.json": "synthetic",
+  "data/corpus.json": "synthetic",
+  "data/pilot_queries.json": "synthetic",
+  "data/challenge.json": "synthetic",
+  "runtime/qdrant_server.py": "code"
+}

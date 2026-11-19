@@ -1,0 +1,318 @@
+{
+  "opaque_episode_id": "ep-505f45605e96e96b9e1842045c717c85",
+  "opportunity_id": "opp-714458713e36a5dd9b3ac99189788883",
+  "mode": "RC01_FIX_M1",
+  "cutoff_key": {
+    "tick": 3,
+    "event_seq": 50
+  },
+  "t_decision_cutoff_sim_h": 0.03,
+  "sensor_contract_rev": "TEP_BASE_TAG_SUBSET_FIXTURE_1",
+  "observation_prefix": [
+    {
+      "observation_id": "obs-0ae252e7ebc714e5ef55a0db6c6fbad2",
+      "tag": "XMEAS(7)",
+      "value_or_null": 2701,
+      "unit": "kPa(g)",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.0,
+      "available_at_sim_h": 0.0,
+      "available_key": {
+        "tick": 0,
+        "event_seq": 10
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-5d09dca770ab87508f4500e829f7c710",
+      "tag": "XMEAS(8)",
+      "value_or_null": 71,
+      "unit": "%",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.0,
+      "available_at_sim_h": 0.0,
+      "available_key": {
+        "tick": 0,
+        "event_seq": 20
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-0fc227dddc1968e72ae774c3c4ab1c8b",
+      "tag": "XMEAS(9)",
+      "value_or_null": 121.1,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.0,
+      "available_at_sim_h": 0.0,
+      "available_key": {
+        "tick": 0,
+        "event_seq": 30
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-ce63c0e7cfa4589f237d5da84e739f1a",
+      "tag": "XMEAS(21)",
+      "value_or_null": 94.1,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.0,
+      "available_at_sim_h": 0.0,
+      "available_key": {
+        "tick": 0,
+        "event_seq": 40
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-a17d6baf204483f1789064e8716c0a58",
+      "tag": "XMEAS(7)",
+      "value_or_null": 2721,
+      "unit": "kPa(g)",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.01,
+      "available_at_sim_h": 0.01,
+      "available_key": {
+        "tick": 1,
+        "event_seq": 10
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-f8c62a8fb7ed1f2a4d672cbd1c31ff2d",
+      "tag": "XMEAS(8)",
+      "value_or_null": 72,
+      "unit": "%",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.01,
+      "available_at_sim_h": 0.01,
+      "available_key": {
+        "tick": 1,
+        "event_seq": 20
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-6080b1e78306ac9c45fb913fd507ade2",
+      "tag": "XMEAS(9)",
+      "value_or_null": 126.2,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.01,
+      "available_at_sim_h": 0.01,
+      "available_key": {
+        "tick": 1,
+        "event_seq": 30
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-e917cd16c75ad950b93ac65a336fe5ba",
+      "tag": "XMEAS(21)",
+      "value_or_null": 94.8,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.01,
+      "available_at_sim_h": 0.01,
+      "available_key": {
+        "tick": 1,
+        "event_seq": 40
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-d71fa6eb8ddcf5e571f7f20f556979d4",
+      "tag": "XMEAS(7)",
+      "value_or_null": 2753,
+      "unit": "kPa(g)",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.02,
+      "available_at_sim_h": 0.02,
+      "available_key": {
+        "tick": 2,
+        "event_seq": 10
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-79ca012e95d00e6fca2f2d326885b0b6",
+      "tag": "XMEAS(8)",
+      "value_or_null": 73,
+      "unit": "%",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.02,
+      "available_at_sim_h": 0.02,
+      "available_key": {
+        "tick": 2,
+        "event_seq": 20
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-6159acece85ef586b53d60fbf4d8d7d2",
+      "tag": "XMEAS(9)",
+      "value_or_null": 127.4,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.02,
+      "available_at_sim_h": 0.02,
+      "available_key": {
+        "tick": 2,
+        "event_seq": 30
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-d035056b09772c2016dd1452c6ea4b12",
+      "tag": "XMEAS(21)",
+      "value_or_null": 95.1,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.02,
+      "available_at_sim_h": 0.02,
+      "available_key": {
+        "tick": 2,
+        "event_seq": 40
+      },
+      "available_wall_ns": "0"
+    },
+    {
+      "observation_id": "obs-b6c6ac5b73c31a2fa367be9119eeefa9",
+      "tag": "XMEAS(7)",
+      "value_or_null": 2755,
+      "unit": "kPa(g)",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.03,
+      "available_at_sim_h": 0.03,
+      "available_key": {
+        "tick": 3,
+        "event_seq": 10
+      },
+      "available_wall_ns": "111000000"
+    },
+    {
+      "observation_id": "obs-5fd44e73cbb3efd0c0acb6493680b5e8",
+      "tag": "XMEAS(8)",
+      "value_or_null": 74,
+      "unit": "%",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.03,
+      "available_at_sim_h": 0.03,
+      "available_key": {
+        "tick": 3,
+        "event_seq": 20
+      },
+      "available_wall_ns": "111000000"
+    },
+    {
+      "observation_id": "obs-6adb416666d2cd59880584a14e0d28a4",
+      "tag": "XMEAS(9)",
+      "value_or_null": 125.4,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.03,
+      "available_at_sim_h": 0.03,
+      "available_key": {
+        "tick": 3,
+        "event_seq": 30
+      },
+      "available_wall_ns": "111000000"
+    },
+    {
+      "observation_id": "obs-f924384f07091b95f6f4f1cf5b6ede0b",
+      "tag": "XMEAS(21)",
+      "value_or_null": 95.7,
+      "unit": "degC",
+      "quality": "GOOD",
+      "sampled_at_sim_h_or_null": 0.03,
+      "available_at_sim_h": 0.03,
+      "available_key": {
+        "tick": 3,
+        "event_seq": 40
+      },
+      "available_wall_ns": "111000000"
+    }
+  ],
+  "published_alarm_events": [
+    {
+      "alarm_event_id": "evt-921a33e51f85fd811bd3b9cecf2e954c",
+      "alarm_instance_id": "alarm-e7c11ad08b8d121a8d33403304c4da95",
+      "alarm_definition_id": "AL-01T",
+      "alarm_definition_revision": "fixture.1",
+      "affected_unit": "TEP_REACTOR",
+      "source_observation_ids": [
+        "obs-6080b1e78306ac9c45fb913fd507ade2",
+        "obs-6159acece85ef586b53d60fbf4d8d7d2"
+      ],
+      "priority_id": "SYNTH_REVIEW",
+      "priority_reason": "두 신호를 함께 검토하는 화면·순서 시험. 실제 안전 우선순위 미정.",
+      "detected_at_sim_h": 0.02,
+      "available_at_sim_h": 0.02,
+      "available_key": {
+        "tick": 2,
+        "event_seq": 45
+      },
+      "available_wall_ns": "111000000",
+      "condition_state": "ACTIVE",
+      "ack_state": "UNACKNOWLEDGED",
+      "observation_link_state": "COMPLETE"
+    },
+    {
+      "alarm_event_id": "evt-84d5a646feef6b2fda52c010cbe866aa",
+      "alarm_instance_id": "alarm-b8663f15e9aa4a2e054dce40beb78a41",
+      "alarm_definition_id": "AL-01P",
+      "alarm_definition_revision": "fixture.1",
+      "affected_unit": "TEP_REACTOR",
+      "source_observation_ids": [
+        "obs-d71fa6eb8ddcf5e571f7f20f556979d4",
+        "obs-b6c6ac5b73c31a2fa367be9119eeefa9"
+      ],
+      "priority_id": "SYNTH_REVIEW",
+      "priority_reason": "두 신호를 함께 검토하는 화면·순서 시험. 실제 안전 우선순위 미정.",
+      "detected_at_sim_h": 0.03,
+      "available_at_sim_h": 0.03,
+      "available_key": {
+        "tick": 3,
+        "event_seq": 46
+      },
+      "available_wall_ns": "111000000",
+      "condition_state": "ACTIVE",
+      "ack_state": "UNACKNOWLEDGED",
+      "observation_link_state": "COMPLETE"
+    },
+    {
+      "alarm_event_id": "evt-7feb1867fa8417d0bcf565baf86bf9bf",
+      "alarm_instance_id": "alarm-e7c11ad08b8d121a8d33403304c4da95",
+      "alarm_definition_id": "AL-01T",
+      "alarm_definition_revision": "fixture.1",
+      "affected_unit": "TEP_REACTOR",
+      "source_observation_ids": [
+        "obs-6080b1e78306ac9c45fb913fd507ade2",
+        "obs-6159acece85ef586b53d60fbf4d8d7d2"
+      ],
+      "priority_id": "SYNTH_REVIEW",
+      "priority_reason": "두 신호를 함께 검토하는 화면·순서 시험. 실제 안전 우선순위 미정.",
+      "detected_at_sim_h": 0.02,
+      "available_at_sim_h": 0.03,
+      "available_key": {
+        "tick": 3,
+        "event_seq": 48
+      },
+      "available_wall_ns": "111000000",
+      "condition_state": "ACTIVE",
+      "ack_state": "ACKNOWLEDGED",
+      "observation_link_state": "COMPLETE"
+    }
+  ],
+  "alarm_groups": [
+    {
+      "group_id": "group-8dba830d5e485025fc789d481d76f034",
+      "member_event_ids": [
+        "evt-7feb1867fa8417d0bcf565baf86bf9bf",
+        "evt-84d5a646feef6b2fda52c010cbe866aa"
+      ],
+      "public_reason": "같은 대상에서 한 fixture tick 이내 공개된 활성 알람을 함께 표시."
+    }
+  ]
+}

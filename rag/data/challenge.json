@@ -1,0 +1,92 @@
+[
+  {
+    "id": "challenge-01",
+    "query": "I clicked acknowledge on the reactor warning, but the display still says active. Which instruction tells me how to interpret those two states?",
+    "relevant": [
+      "RC01-S1"
+    ],
+    "category": "sop_positive"
+  },
+  {
+    "id": "challenge-02",
+    "query": "The reading looks plausible, but its timestamp is from a previous shift and its quality flag is uncertain. Which pre-use check addresses these problems?",
+    "relevant": [
+      "RC01-S2"
+    ],
+    "category": "sop_positive"
+  },
+  {
+    "id": "challenge-03",
+    "query": "Only vessel pressure, level, temperature and spent coolant temperature are visible. Do these readings alone identify whether the supply water became warmer or circulation changed?",
+    "relevant": [
+      "RC01-S3"
+    ],
+    "category": "sop_positive"
+  },
+  {
+    "id": "challenge-04",
+    "query": "The readings and document are usable, but the card grants no control move. What should the operator enter as their decision?",
+    "relevant": [
+      "RC01-S4"
+    ],
+    "category": "sop_positive"
+  },
+  {
+    "id": "challenge-05",
+    "query": "We left the automatic controller unchanged. What evidence must be followed before treating the incident as finished?",
+    "relevant": [
+      "RC01-S5"
+    ],
+    "category": "sop_positive"
+  },
+  {
+    "id": "challenge-06",
+    "query": "The interface lists XMEAS(7), XMEAS(8), XMEAS(9) and XMEAS(21). Match each displayed number to its physical measurement.",
+    "relevant": [
+      "TEP-SIGNALS"
+    ],
+    "category": "reference_positive"
+  },
+  {
+    "id": "challenge-07",
+    "query": "For the vessel that splits the product into vapor and liquid, which three physical quantities are listed as measured?",
+    "relevant": [
+      "TEP-SEPARATOR"
+    ],
+    "category": "reference_positive"
+  },
+  {
+    "id": "challenge-08",
+    "query": "I am preparing an exercise with a coolant valve that moves in jerks. Which note describes the expected shape of the reactor temperature trend?",
+    "relevant": [
+      "APM-STICTION"
+    ],
+    "category": "reference_positive"
+  },
+  {
+    "id": "challenge-09",
+    "query": "In the teaching exercise where the separate A feed disappears, which vessel’s material inventory is watched afterwards?",
+    "relevant": [
+      "APM-LOSTFEED"
+    ],
+    "category": "reference_positive"
+  },
+  {
+    "id": "challenge-10",
+    "query": "Give the approved sequence of valve operations to relieve high pressure in the product separator.",
+    "relevant": [],
+    "category": "wrong_equipment_hold"
+  },
+  {
+    "id": "challenge-11",
+    "query": "Which detergent concentration and flushing sequence must be used to clean deposits from the reactor cooling circuit?",
+    "relevant": [],
+    "category": "no_procedure_hold"
+  },
+  {
+    "id": "challenge-12",
+    "query": "The teaching example stops the A feed. What approved sequence restores that feed and restarts the stripper?",
+    "relevant": [],
+    "category": "reference_to_procedure_hold"
+  }
+]

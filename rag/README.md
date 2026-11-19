@@ -53,3 +53,5 @@ python runtime/sgs_run.py --source . --allowlist runtime/sgs-allowlist.json \
 ```
 
 Pod 안에서 공개 모델과 고정 판본의 Qdrant를 임시 공간에 받아 검색한다. 실행기는 이번 작업의 결과를 지정한 로컬 폴더에 받은 뒤 해당 Pod를 회수한다. 작업 원본과 클러스터 로그에는 내부 식별자가 있으므로 공유할 때는 검색 결과 파일을 선택한다. [SGS 단발 GPU 작업 예시](https://sgs-docs.snucse.org/usage/run-workload-examples.html)
+
+클라이언트가 끊겨 결과 수신 상태가 불확실하면, 로그인 복구 후 같은 실행 폴더를 가리켜 `python runtime/sgs_recover.py --output 실행폴더 --kubeconfig "$SGS_KUBECONFIG" --context "$SGS_CONTEXT" --namespace "$SGS_NAMESPACE"`를 실행한다. 제출한 패키지와 Pod 식별자를 대조하며, 종료된 작업의 결과를 검증한 뒤 해당 Pod를 회수한다. 이미 삭제됐다면 기존 수신 파일과 영수증을 다시 검증한다.

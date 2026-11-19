@@ -1,0 +1,67 @@
+{
+  "environment": "SNUCSE SGS",
+  "device": "cpu",
+  "gpu_model": null,
+  "cleanup": "owned Pod removed",
+  "qdrant": {
+    "title": "qdrant - vector search engine",
+    "version": "1.16.2",
+    "commit": "d2834de0b51be23a7b22b023e424cbb9456d0e75"
+  },
+  "input_sha256": {
+    "corpus.json": "525bbef39993b4ff097b3293cc536aff036122ace3d43e64f6d1b09f43452a2a",
+    "pilot_queries.json": "e571e428bfd8a72513f9cede8f67dbf89018084174b6883aa70dfa04f95461c5",
+    "challenge.json": "c3f468f02a6807231dcb29147838b58c89528eabddaeb6fa4f1076d86d17308d"
+  },
+  "steps_elapsed_s": {
+    "dependencies": 21.975,
+    "public_models": 222.078,
+    "suite": 137.964
+  },
+  "bundle_sha256": "e0608f4c1560ab0cd0602a49f63d30105653a888a032ab05756f2a26e762a780",
+  "actual_zoro_calls": 0,
+  "rank_results": {
+    "bm25": {
+      "pilot": {
+        "n_positives": 4,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 10.14876551926136
+      },
+      "challenge": {
+        "n_positives": 9,
+        "top1": 7,
+        "top3": 8,
+        "median_total_ms_all_queries": 3.0165219213813543
+      }
+    },
+    "hybrid": {
+      "pilot": {
+        "n_positives": 4,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 151.43857174552977
+      },
+      "challenge": {
+        "n_positives": 9,
+        "top1": 9,
+        "top3": 9,
+        "median_total_ms_all_queries": 143.01303937099874
+      }
+    },
+    "hybrid_rerank": {
+      "pilot": {
+        "n_positives": 4,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 6413.5894656647
+      },
+      "challenge": {
+        "n_positives": 9,
+        "top1": 9,
+        "top3": 9,
+        "median_total_ms_all_queries": 6145.386788528413
+      }
+    }
+  }
+}

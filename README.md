@@ -42,3 +42,7 @@ TEP(Tennessee Eastman Process) 시뮬레이션에서 운영자가 알람을 받�
 ## TEP Studio의 실제 시뮬레이션 기록
 
 [동일 초기 상태에서 갈라진 두 경로](examples/tep-replay/README.md)를 재계산해 800행의 원 기록과 대조했다. 2시간 시점에 생산 목표를 낮춘 경로는 그 뒤 6시간 동안 누적 제품량이 353.91 L 적었고, 최고 반응기 압력이 0.80 kPa 낮았다. 한 시나리오와 시드에서 얻은 결과다. 이 기록에는 알람 이력과 계기 품질이 없으므로, 시연용 복합 알람 발생 여부는 확인할 수 없다. [두 경로의 수치](examples/tep-replay/comparison.json) · [2시간 시점에서 검색에 전달한 관측](examples/tep-replay/operator-view.json)
+
+### 서울대학교 CSE SGS 실측
+
+임시 CPU 작업에서 공개 가중치와 Qdrant 1.16.2 서버를 띄워 같은 실험을 반복했다. 세 방식의 1위·상위 3위 정답 수가 위 표와 일치했다. 별도 질문 전체 12개(양성 9개와 보류 3개)의 질의 중간값은 BM25 3.0 ms, 결합 검색 143 ms, Qwen 재정렬 추가 시 6.15 s였다. 이 시간에서 모델 준비와 다운로드는 제외했다. 8개 사건의 결과를 회수했고 전용 Pod의 삭제를 확인했다. [SGS 질문별 결과](examples/benchmarks/sgs-cpu.json) · [실행 정보](examples/benchmarks/sgs-cpu-receipt.json)

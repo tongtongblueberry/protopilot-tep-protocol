@@ -303,8 +303,8 @@ def parse_args(argv=None):
     args = parser.parse_args(argv)
     if args.run and args.kubeconfig is None:
         parser.error("--run requires an explicit --kubeconfig")
-    if not 1 <= args.run_seconds <= 3600 or not 1 <= args.start_seconds <= 600:
-        parser.error("Run must be 1–3600 seconds and startup must be 1–600 seconds")
+    if not 1 <= args.run_seconds <= 3600 or not 1 <= args.start_seconds <= 1800:
+        parser.error("Run must be 1–3600 seconds and startup must be 1–1800 seconds")
     if not 1 <= args.cpu <= 64 or not re.fullmatch(r"[1-9][0-9]*(?:Mi|Gi)", args.memory):
         parser.error("Specify a positive CPU limit <=64 and memory such as 8Gi")
     if not re.fullmatch(r"[a-z0-9](?:[-a-z0-9]*[a-z0-9])?", args.namespace):

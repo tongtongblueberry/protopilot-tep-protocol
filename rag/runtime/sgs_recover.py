@@ -53,11 +53,17 @@ def recover(args):
             write_json(out / "pre-recovery.json", state)
         try:
             attempt.capture()
-        except RuntimeError:
-            if phase == "Failed" and (out / "remote-result.json").exists():
-                state.update(status="FAILED", pod_phase=phase)
-                attempt.cleanup()
+        except (RuntimeError, ValueError, OSError) as exc:
+            if phase == "Failed":
+                state.update(status="FAILED", pod_phase=phase,
+                             capture_error={"type": type(exc).__name__, "message": str(exc)})
                 attempt.save()
+                # Failed Pods can terminate before the workload writes its receipt.
+                # The immutable UID and terminal status still establish cleanup ownership.
+                try:
+                    attempt.cleanup()
+                finally:
+                    attempt.save()
             raise
         if phase != "Succeeded":
             raise RuntimeError("Terminal Pod and workload receipt disagree")

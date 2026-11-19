@@ -1,0 +1,67 @@
+{
+  "environment": "SNUCSE SGS",
+  "device": "cuda",
+  "gpu_model": "NVIDIA A100-SXM4-40GB",
+  "cleanup": "owned Pod removed",
+  "qdrant": {
+    "title": "qdrant - vector search engine",
+    "version": "1.16.2",
+    "commit": "d2834de0b51be23a7b22b023e424cbb9456d0e75"
+  },
+  "input_sha256": {
+    "corpus.json": "525bbef39993b4ff097b3293cc536aff036122ace3d43e64f6d1b09f43452a2a",
+    "pilot_queries.json": "e571e428bfd8a72513f9cede8f67dbf89018084174b6883aa70dfa04f95461c5",
+    "challenge.json": "c3f468f02a6807231dcb29147838b58c89528eabddaeb6fa4f1076d86d17308d"
+  },
+  "steps_elapsed_s": {
+    "dependencies": 11.93,
+    "public_models": 220.439,
+    "suite": 14.964
+  },
+  "bundle_sha256": "8ed2b0b17ec5f5268ab2eaf9ab0691a2561388a25427f233a1f49bd8083565c5",
+  "actual_zoro_calls": 0,
+  "rank_results": {
+    "bm25": {
+      "pilot": {
+        "n_positives": 4,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 2.5833564868662506
+      },
+      "challenge": {
+        "n_positives": 9,
+        "top1": 7,
+        "top3": 8,
+        "median_total_ms_all_queries": 1.65401998674497
+      }
+    },
+    "hybrid": {
+      "pilot": {
+        "n_positives": 4,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 16.064030525740236
+      },
+      "challenge": {
+        "n_positives": 9,
+        "top1": 9,
+        "top3": 9,
+        "median_total_ms_all_queries": 15.63554396852851
+      }
+    },
+    "hybrid_rerank": {
+      "pilot": {
+        "n_positives": 4,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 137.54903498920612
+      },
+      "challenge": {
+        "n_positives": 9,
+        "top1": 9,
+        "top3": 9,
+        "median_total_ms_all_queries": 136.98788901092485
+      }
+    }
+  }
+}

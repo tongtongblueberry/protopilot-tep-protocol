@@ -46,3 +46,5 @@ TEP(Tennessee Eastman Process) 시뮬레이션에서 운영자가 알람을 받�
 ### 서울대학교 CSE SGS 실측
 
 임시 CPU 작업에서 공개 가중치와 Qdrant 1.16.2 서버를 띄워 같은 실험을 반복했다. 세 방식의 1위·상위 3위 정답 수가 위 표와 일치했다. 별도 질문 전체 12개(양성 9개와 보류 3개)의 질의 중간값은 BM25 3.0 ms, 결합 검색 143 ms, Qwen 재정렬 추가 시 6.15 s였다. 이 시간에서 모델 준비와 다운로드는 제외했다. 8개 사건의 결과를 회수했고 전용 Pod의 삭제를 확인했다. [SGS 질문별 결과](examples/benchmarks/sgs-cpu.json) · [실행 정보](examples/benchmarks/sgs-cpu-receipt.json)
+
+동일한 입력을 **NVIDIA A100-SXM4-40GB 1장**에서도 실행했다. BM25·결합 검색·재정렬 추가의 질의 중간값은 각각 **1.7 ms, 15.6 ms, 137.0 ms**였다. 별도 양성 9개에서 각각 7개·9개·9개의 정답을 1위로 찾았고, 사건 8개의 판정도 CPU와 일치했다. GPU 작업의 결과 회수와 전용 Pod 삭제를 확인했다. [A100 질문별 결과](examples/benchmarks/sgs-cuda.json) · [A100 실행 정보](examples/benchmarks/sgs-cuda-receipt.json)

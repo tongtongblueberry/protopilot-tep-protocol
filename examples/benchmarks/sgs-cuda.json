@@ -1,0 +1,3657 @@
+{
+  "runtime": {
+    "device": "cuda",
+    "machine": "x86_64",
+    "python": "3.11.13",
+    "packages": {
+      "torch": "2.8.0+cu126",
+      "qdrant-client": "1.16.2",
+      "transformers": "4.57.1"
+    },
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "input_sha256": {
+      "corpus.json": "525bbef39993b4ff097b3293cc536aff036122ace3d43e64f6d1b09f43452a2a",
+      "pilot_queries.json": "e571e428bfd8a72513f9cede8f67dbf89018084174b6883aa70dfa04f95461c5",
+      "challenge.json": "c3f468f02a6807231dcb29147838b58c89528eabddaeb6fa4f1076d86d17308d"
+    },
+    "zoro": {
+      "status": "NOT_RUN",
+      "actual_calls": 0
+    }
+  },
+  "modes": {
+    "bm25": {
+      "preparation_delta_ms": {
+        "bm25_index": 0.0,
+        "bge_load": 0.0,
+        "dense_index": 0.0,
+        "reranker_load": 0.0
+      },
+      "pilot": {
+        "n_positives": 4,
+        "n_without_relevant_procedure": 0,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 2.5833564868662506,
+        "queries": [
+          {
+            "id": "alarm-events",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S1"
+            ],
+            "ranked_ids": [
+              "RC01-S1",
+              "RC01-S3",
+              "TEP-SEPARATOR"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.004658999387174845,
+              "query_embedding": 0.0,
+              "retrieval": 2.8531799907796085,
+              "rerank": 0.0,
+              "total": 5.38839801447466
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S1",
+                "score": 11.472773,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 7.0944843,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 4.60375,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "valid-context",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S2"
+            ],
+            "ranked_ids": [
+              "RC01-S2",
+              "APM-STICTION",
+              "RC01-S3"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003857014235109091,
+              "query_embedding": 0.0,
+              "retrieval": 1.2435329845175147,
+              "rerank": 0.0,
+              "total": 2.843411988578737
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S2",
+                "score": 18.300385,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 5.6173344,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S3",
+                "score": 2.4270418,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "missing-clue",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S3"
+            ],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "RC01-S5"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003567023668438196,
+              "query_embedding": 0.0,
+              "retrieval": 1.1512410128489137,
+              "rerank": 0.0,
+              "total": 2.3233009851537645
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 9.639728,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 3.0861566,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S5",
+                "score": 2.5725276,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "follow-up",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S5"
+            ],
+            "ranked_ids": [
+              "RC01-S5",
+              "RC01-S4",
+              "RC01-S1"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0035060220398008823,
+              "query_embedding": 0.0,
+              "retrieval": 0.9704729891382158,
+              "rerank": 0.0,
+              "total": 1.8367209704592824
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S5",
+                "score": 7.808202,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S4",
+                "score": 6.809918,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S1",
+                "score": 3.5857377,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          }
+        ]
+      },
+      "challenge": {
+        "n_positives": 9,
+        "n_without_relevant_procedure": 3,
+        "top1": 7,
+        "top3": 8,
+        "median_total_ms_all_queries": 1.65401998674497,
+        "queries": [
+          {
+            "id": "challenge-01",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S1"
+            ],
+            "ranked_ids": [
+              "TEP-SIGNALS",
+              "RC01-S3",
+              "APM-LOSTFEED"
+            ],
+            "top1": false,
+            "top3": false,
+            "timing_ms": {
+              "prepare": 0.0034460099413990974,
+              "query_embedding": 0.0,
+              "retrieval": 0.9289960144087672,
+              "rerank": 0.0,
+              "total": 1.796487020328641
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SIGNALS",
+                "score": 3.0512953,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 2.64094,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-LOSTFEED",
+                "score": 2.4300408,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-02",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S2"
+            ],
+            "ranked_ids": [
+              "APM-STICTION",
+              "RC01-S3",
+              "RC01-S2"
+            ],
+            "top1": false,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003505963832139969,
+              "query_embedding": 0.0,
+              "retrieval": 0.8860550005920231,
+              "rerank": 0.0,
+              "total": 1.6889459802769125
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-STICTION",
+                "score": 5.286189,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 4.3383765,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S2",
+                "score": 4.2144003,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-03",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S3"
+            ],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "TEP-SEPARATOR"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.00564096262678504,
+              "query_embedding": 0.0,
+              "retrieval": 0.8929679752327502,
+              "rerank": 0.0,
+              "total": 1.6999059589579701
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 10.408696,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 6.5690145,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 6.514002,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-04",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S4"
+            ],
+            "ranked_ids": [
+              "RC01-S4",
+              "RC01-S2",
+              "RC01-S5"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.00302604166790843,
+              "query_embedding": 0.0,
+              "retrieval": 0.8735429728403687,
+              "rerank": 0.0,
+              "total": 1.6603220137767494
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S4",
+                "score": 5.8737836,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S2",
+                "score": 3.7120576,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S5",
+                "score": 3.5887341,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-05",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S5"
+            ],
+            "ranked_ids": [
+              "RC01-S5",
+              "RC01-S2",
+              "RC01-S4"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.002775981556624174,
+              "query_embedding": 0.0,
+              "retrieval": 0.8558079716749489,
+              "rerank": 0.0,
+              "total": 1.6347950440831482
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S5",
+                "score": 2.911263,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S2",
+                "score": 2.853323,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S4",
+                "score": 2.5065997,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-06",
+            "category": "reference_positive",
+            "relevant": [
+              "TEP-SIGNALS"
+            ],
+            "ranked_ids": [
+              "TEP-SIGNALS",
+              "RC01-S1",
+              "APM-LOSTFEED"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0028650392778217793,
+              "query_embedding": 0.0,
+              "retrieval": 0.8664489723742008,
+              "rerank": 0.0,
+              "total": 1.6518670017831028
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SIGNALS",
+                "score": 17.985683,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S1",
+                "score": 4.083175,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-LOSTFEED",
+                "score": 3.3758821,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-07",
+            "category": "reference_positive",
+            "relevant": [
+              "TEP-SEPARATOR"
+            ],
+            "ranked_ids": [
+              "TEP-SEPARATOR",
+              "RC01-S3",
+              "RC01-S4"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0030050287023186684,
+              "query_embedding": 0.0,
+              "retrieval": 0.8886000141501427,
+              "rerank": 0.0,
+              "total": 1.6869219834916294
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 11.629761,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 3.4127278,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S4",
+                "score": 2.1241684,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-08",
+            "category": "reference_positive",
+            "relevant": [
+              "APM-STICTION"
+            ],
+            "ranked_ids": [
+              "APM-STICTION",
+              "RC01-S3",
+              "APM-LOSTFEED"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.002796004991978407,
+              "query_embedding": 0.0,
+              "retrieval": 0.8574020466767251,
+              "rerank": 0.0,
+              "total": 1.6558929928578436
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-STICTION",
+                "score": 8.281212,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 6.917532,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-LOSTFEED",
+                "score": 6.57726,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-09",
+            "category": "reference_positive",
+            "relevant": [
+              "APM-LOSTFEED"
+            ],
+            "ranked_ids": [
+              "APM-LOSTFEED",
+              "APM-STICTION",
+              "RC01-S3"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0027050264179706573,
+              "query_embedding": 0.0,
+              "retrieval": 0.8486660080961883,
+              "rerank": 0.0,
+              "total": 1.627039979211986
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-LOSTFEED",
+                "score": 11.975192,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 5.874214,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S3",
+                "score": 3.639902,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-10",
+            "category": "wrong_equipment_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "TEP-SEPARATOR",
+              "APM-LOSTFEED",
+              "APM-STICTION"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.002844957634806633,
+              "query_embedding": 0.0,
+              "retrieval": 0.8781109936535358,
+              "rerank": 0.0,
+              "total": 1.65092502720654
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 7.6108236,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "APM-LOSTFEED",
+                "score": 5.2166605,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 3.3429697,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-11",
+            "category": "no_procedure_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "RC01-S5"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.0028650392778217793,
+              "query_embedding": 0.0,
+              "retrieval": 0.8602879825048149,
+              "rerank": 0.0,
+              "total": 1.6276310198009014
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 5.0195923,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 4.620512,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S5",
+                "score": 2.911263,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-12",
+            "category": "reference_to_procedure_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "APM-LOSTFEED",
+              "APM-STICTION",
+              "RC01-S4"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.0030060182325541973,
+              "query_embedding": 0.0,
+              "retrieval": 0.8667290094308555,
+              "rerank": 0.0,
+              "total": 1.6521469806320965
+            },
+            "execution": {
+              "requested_mode": "bm25",
+              "executed_mode": "bm25",
+              "backend": "qdrant_server",
+              "device": "cpu",
+              "dtype": null,
+              "models": {},
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 0.0,
+                "dense_index": 0.0,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-LOSTFEED",
+                "score": 9.668751,
+                "bm25_rank": 1,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 3.413282,
+                "bm25_rank": 2,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S4",
+                "score": 2.3249025,
+                "bm25_rank": 3,
+                "dense_rank": null,
+                "rrf_score": null,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "hybrid": {
+      "preparation_delta_ms": {
+        "bm25_index": 0.0,
+        "bge_load": 4344.341834017541,
+        "dense_index": 297.64425999019295,
+        "reranker_load": 0.0
+      },
+      "pilot": {
+        "n_positives": 4,
+        "n_without_relevant_procedure": 0,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 16.064030525740236,
+        "queries": [
+          {
+            "id": "alarm-events",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S1"
+            ],
+            "ranked_ids": [
+              "RC01-S1",
+              "RC01-S3",
+              "RC01-S2"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003897002898156643,
+              "query_embedding": 10.003983043134212,
+              "retrieval": 6.364571978338063,
+              "rerank": 0.0,
+              "total": 17.558166990056634
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S1",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.5833334,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S2",
+                "score": 0.45833334,
+                "bm25_rank": 7,
+                "dense_rank": 2,
+                "rrf_score": 0.45833334,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "valid-context",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S2"
+            ],
+            "ranked_ids": [
+              "RC01-S2",
+              "TEP-SIGNALS",
+              "APM-STICTION"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003335997462272644,
+              "query_embedding": 9.858591016381979,
+              "retrieval": 5.508531990926713,
+              "rerank": 0.0,
+              "total": 16.247288032900542
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S2",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.53333336,
+                "bm25_rank": 4,
+                "dense_rank": 2,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.4761905,
+                "bm25_rank": 2,
+                "dense_rank": 6,
+                "rrf_score": 0.4761905,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "missing-clue",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S3"
+            ],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "APM-STICTION"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0033660326153039932,
+              "query_embedding": 9.676549991127104,
+              "retrieval": 5.331422027666122,
+              "rerank": 0.0,
+              "total": 15.836641017813236
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.5833334,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.5,
+                "bm25_rank": 5,
+                "dense_rank": 2,
+                "rrf_score": 0.5,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "follow-up",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S5"
+            ],
+            "ranked_ids": [
+              "RC01-S5",
+              "RC01-S4",
+              "RC01-S1"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0033159740269184113,
+              "query_embedding": 9.833893971517682,
+              "retrieval": 5.251823051366955,
+              "rerank": 0.0,
+              "total": 15.88077301857993
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S5",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S4",
+                "score": 0.6666667,
+                "bm25_rank": 2,
+                "dense_rank": 2,
+                "rrf_score": 0.6666667,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S1",
+                "score": 0.5,
+                "bm25_rank": 3,
+                "dense_rank": 3,
+                "rrf_score": 0.5,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          }
+        ]
+      },
+      "challenge": {
+        "n_positives": 9,
+        "n_without_relevant_procedure": 3,
+        "top1": 9,
+        "top3": 9,
+        "median_total_ms_all_queries": 15.63554396852851,
+        "queries": [
+          {
+            "id": "challenge-01",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S1"
+            ],
+            "ranked_ids": [
+              "RC01-S1",
+              "TEP-SIGNALS",
+              "RC01-S3"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003396009560674429,
+              "query_embedding": 9.649279003497213,
+              "retrieval": 5.16765599604696,
+              "rerank": 0.0,
+              "total": 15.63462195917964
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S1",
+                "score": 0.7,
+                "bm25_rank": 4,
+                "dense_rank": 1,
+                "rrf_score": 0.7,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.6666667,
+                "bm25_rank": 1,
+                "dense_rank": 5,
+                "rrf_score": 0.6666667,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.53333336,
+                "bm25_rank": 2,
+                "dense_rank": 4,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-02",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S2"
+            ],
+            "ranked_ids": [
+              "RC01-S2",
+              "APM-STICTION",
+              "RC01-S1"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0033060205169022083,
+              "query_embedding": 9.73544002044946,
+              "retrieval": 4.995504976250231,
+              "rerank": 0.0,
+              "total": 15.529606025665998
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S2",
+                "score": 0.75,
+                "bm25_rank": 3,
+                "dense_rank": 1,
+                "rrf_score": 0.75,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.6111111,
+                "bm25_rank": 1,
+                "dense_rank": 8,
+                "rrf_score": 0.6111111,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S1",
+                "score": 0.53333336,
+                "bm25_rank": 4,
+                "dense_rank": 2,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-03",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S3"
+            ],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "TEP-SEPARATOR"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0033160322345793247,
+              "query_embedding": 9.629181993659586,
+              "retrieval": 4.989513021428138,
+              "rerank": 0.0,
+              "total": 15.420131967402995
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.53333336,
+                "bm25_rank": 2,
+                "dense_rank": 4,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 0.5,
+                "bm25_rank": 3,
+                "dense_rank": 3,
+                "rrf_score": 0.5,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-04",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S4"
+            ],
+            "ranked_ids": [
+              "RC01-S4",
+              "RC01-S2",
+              "RC01-S5"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003326043952256441,
+              "query_embedding": 9.723477996885777,
+              "retrieval": 5.027203995268792,
+              "rerank": 0.0,
+              "total": 15.564122004434466
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S4",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S2",
+                "score": 0.6666667,
+                "bm25_rank": 2,
+                "dense_rank": 2,
+                "rrf_score": 0.6666667,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S5",
+                "score": 0.39285713,
+                "bm25_rank": 3,
+                "dense_rank": 6,
+                "rrf_score": 0.39285713,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-05",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S5"
+            ],
+            "ranked_ids": [
+              "RC01-S5",
+              "RC01-S4",
+              "RC01-S2"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0033859978429973125,
+              "query_embedding": 10.257685964461416,
+              "retrieval": 5.056889029219747,
+              "rerank": 0.0,
+              "total": 16.101194021757692
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S5",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S4",
+                "score": 0.5833334,
+                "bm25_rank": 3,
+                "dense_rank": 2,
+                "rrf_score": 0.5833334,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S2",
+                "score": 0.53333336,
+                "bm25_rank": 2,
+                "dense_rank": 4,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-06",
+            "category": "reference_positive",
+            "relevant": [
+              "TEP-SIGNALS"
+            ],
+            "ranked_ids": [
+              "TEP-SIGNALS",
+              "RC01-S1",
+              "RC01-S2"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0031460076570510864,
+              "query_embedding": 9.486925962846726,
+              "retrieval": 5.1484599825926125,
+              "rerank": 0.0,
+              "total": 15.411085973028094
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SIGNALS",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S1",
+                "score": 0.5833334,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S2",
+                "score": 0.53333336,
+                "bm25_rank": 4,
+                "dense_rank": 2,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-07",
+            "category": "reference_positive",
+            "relevant": [
+              "TEP-SEPARATOR"
+            ],
+            "ranked_ids": [
+              "TEP-SEPARATOR",
+              "RC01-S3",
+              "RC01-S2"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0033159740269184113,
+              "query_embedding": 9.882073965854943,
+              "retrieval": 4.970346984919161,
+              "rerank": 0.0,
+              "total": 15.636465977877378
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.53333336,
+                "bm25_rank": 2,
+                "dense_rank": 4,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S2",
+                "score": 0.45,
+                "bm25_rank": 4,
+                "dense_rank": 3,
+                "rrf_score": 0.45,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-08",
+            "category": "reference_positive",
+            "relevant": [
+              "APM-STICTION"
+            ],
+            "ranked_ids": [
+              "APM-STICTION",
+              "RC01-S3",
+              "TEP-SIGNALS"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0033660326153039932,
+              "query_embedding": 9.93620598455891,
+              "retrieval": 5.183034983929247,
+              "rerank": 0.0,
+              "total": 15.907232009340078
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-STICTION",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.5833334,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.5,
+                "bm25_rank": 5,
+                "dense_rank": 2,
+                "rrf_score": 0.5,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-09",
+            "category": "reference_positive",
+            "relevant": [
+              "APM-LOSTFEED"
+            ],
+            "ranked_ids": [
+              "APM-LOSTFEED",
+              "APM-STICTION",
+              "RC01-S3"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0032859970815479755,
+              "query_embedding": 9.896260045934469,
+              "retrieval": 4.935782984830439,
+              "rerank": 0.0,
+              "total": 15.63716697273776
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-LOSTFEED",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.6666667,
+                "bm25_rank": 2,
+                "dense_rank": 2,
+                "rrf_score": 0.6666667,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.45,
+                "bm25_rank": 3,
+                "dense_rank": 4,
+                "rrf_score": 0.45,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-10",
+            "category": "wrong_equipment_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "TEP-SEPARATOR",
+              "TEP-SIGNALS",
+              "APM-STICTION"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.0034859986044466496,
+              "query_embedding": 9.721663955133408,
+              "retrieval": 5.023596982937306,
+              "rerank": 0.0,
+              "total": 15.541389002464712
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.53333336,
+                "bm25_rank": 4,
+                "dense_rank": 2,
+                "rrf_score": 0.53333336,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.5,
+                "bm25_rank": 3,
+                "dense_rank": 3,
+                "rrf_score": 0.5,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-11",
+            "category": "no_procedure_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "APM-STICTION"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.0033259857445955276,
+              "query_embedding": 9.714992018416524,
+              "retrieval": 5.837988050188869,
+              "rerank": 0.0,
+              "total": 16.342465009074658
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 0.8333334,
+                "bm25_rank": 1,
+                "dense_rank": 2,
+                "rrf_score": 0.8333334,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.8333334,
+                "bm25_rank": 2,
+                "dense_rank": 1,
+                "rrf_score": 0.8333334,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.45,
+                "bm25_rank": 4,
+                "dense_rank": 3,
+                "rrf_score": 0.45,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-12",
+            "category": "reference_to_procedure_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "APM-LOSTFEED",
+              "APM-STICTION",
+              "RC01-S5"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.0034259865060448647,
+              "query_embedding": 9.83390398323536,
+              "retrieval": 5.040448042564094,
+              "rerank": 0.0,
+              "total": 15.680539014283568
+            },
+            "execution": {
+              "requested_mode": "hybrid",
+              "executed_mode": "hybrid",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 0.0
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-LOSTFEED",
+                "score": 1.0,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": null,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.5833334,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": null,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S5",
+                "score": 0.45833334,
+                "bm25_rank": 7,
+                "dense_rank": 2,
+                "rrf_score": 0.45833334,
+                "rerank_score": null,
+                "rank": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "hybrid_rerank": {
+      "preparation_delta_ms": {
+        "bm25_index": 0.0,
+        "bge_load": 0.0,
+        "dense_index": 0.0,
+        "reranker_load": 2697.9801189736463
+      },
+      "pilot": {
+        "n_positives": 4,
+        "n_without_relevant_procedure": 0,
+        "top1": 4,
+        "top3": 4,
+        "median_total_ms_all_queries": 137.54903498920612,
+        "queries": [
+          {
+            "id": "alarm-events",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S1"
+            ],
+            "ranked_ids": [
+              "RC01-S1",
+              "RC01-S3",
+              "TEP-SIGNALS"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003757013473659754,
+              "query_embedding": 11.172596015967429,
+              "retrieval": 5.732982011977583,
+              "rerank": 178.0183439841494,
+              "total": 196.5006190002896
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S1",
+                "score": 0.999893307685852,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.999893307685852,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.9796808958053589,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": 0.9796808958053589,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.9683369398117065,
+                "bm25_rank": 5,
+                "dense_rank": 4,
+                "rrf_score": 0.36666667,
+                "rerank_score": 0.9683369398117065,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "valid-context",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S2"
+            ],
+            "ranked_ids": [
+              "RC01-S2",
+              "TEP-SIGNALS",
+              "APM-STICTION"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.004058005288243294,
+              "query_embedding": 10.340542008634657,
+              "retrieval": 5.748240975663066,
+              "rerank": 120.31761795515195,
+              "total": 137.93479598825797
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S2",
+                "score": 0.999900221824646,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.999900221824646,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.9032018184661865,
+                "bm25_rank": 4,
+                "dense_rank": 2,
+                "rrf_score": 0.53333336,
+                "rerank_score": 0.9032018184661865,
+                "rank": 2
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.15942318737506866,
+                "bm25_rank": 2,
+                "dense_rank": 6,
+                "rrf_score": 0.4761905,
+                "rerank_score": 0.15942318737506866,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "missing-clue",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S3"
+            ],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "RC01-S4"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0037669669836759567,
+              "query_embedding": 10.050921002402902,
+              "retrieval": 6.3300670008175075,
+              "rerank": 119.79260604130104,
+              "total": 137.16327399015427
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 0.9998378753662109,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9998378753662109,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.9711387157440186,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": 0.9711387157440186,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S4",
+                "score": 0.028746377676725388,
+                "bm25_rank": 4,
+                "dense_rank": 6,
+                "rrf_score": 0.34285715,
+                "rerank_score": 0.028746377676725388,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "follow-up",
+            "category": "pilot",
+            "relevant": [
+              "RC01-S5"
+            ],
+            "ranked_ids": [
+              "RC01-S5",
+              "RC01-S4",
+              "RC01-S1"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003226043190807104,
+              "query_embedding": 9.687822021078318,
+              "retrieval": 5.047209968324751,
+              "rerank": 114.18093100655824,
+              "total": 129.9042709870264
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S5",
+                "score": 0.9999439716339111,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9999439716339111,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S4",
+                "score": 0.9991790652275085,
+                "bm25_rank": 2,
+                "dense_rank": 2,
+                "rrf_score": 0.6666667,
+                "rerank_score": 0.9991790652275085,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S1",
+                "score": 0.9878841042518616,
+                "bm25_rank": 3,
+                "dense_rank": 3,
+                "rrf_score": 0.5,
+                "rerank_score": 0.9878841042518616,
+                "rank": 3
+              }
+            ]
+          }
+        ]
+      },
+      "challenge": {
+        "n_positives": 9,
+        "n_without_relevant_procedure": 3,
+        "top1": 9,
+        "top3": 9,
+        "median_total_ms_all_queries": 136.98788901092485,
+        "queries": [
+          {
+            "id": "challenge-01",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S1"
+            ],
+            "ranked_ids": [
+              "RC01-S1",
+              "APM-STICTION",
+              "TEP-SIGNALS"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0035470002330839634,
+              "query_embedding": 9.604415972717106,
+              "retrieval": 5.190778989344835,
+              "rerank": 122.40421900060028,
+              "total": 138.33949499530718
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S1",
+                "score": 0.9985647797584534,
+                "bm25_rank": 4,
+                "dense_rank": 1,
+                "rrf_score": 0.7,
+                "rerank_score": 0.9985647797584534,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.07039184868335724,
+                "bm25_rank": 5,
+                "dense_rank": 2,
+                "rrf_score": 0.5,
+                "rerank_score": 0.07039184868335724,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.022785155102610588,
+                "bm25_rank": 1,
+                "dense_rank": 5,
+                "rrf_score": 0.6666667,
+                "rerank_score": 0.022785155102610588,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-02",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S2"
+            ],
+            "ranked_ids": [
+              "RC01-S2",
+              "RC01-S4",
+              "RC01-S5"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.008285976946353912,
+              "query_embedding": 10.873617022298276,
+              "retrieval": 6.239690002985299,
+              "rerank": 121.71795597532764,
+              "total": 141.87763596419245
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S2",
+                "score": 0.5182526111602783,
+                "bm25_rank": 3,
+                "dense_rank": 1,
+                "rrf_score": 0.75,
+                "rerank_score": 0.5182526111602783,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S4",
+                "score": 0.008418191224336624,
+                "bm25_rank": 5,
+                "dense_rank": 6,
+                "rrf_score": 0.30952382,
+                "rerank_score": 0.008418191224336624,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S5",
+                "score": 0.0009025722392834723,
+                "bm25_rank": 8,
+                "dense_rank": 3,
+                "rrf_score": 0.3611111,
+                "rerank_score": 0.0009025722392834723,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-03",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S3"
+            ],
+            "ranked_ids": [
+              "RC01-S3",
+              "TEP-SIGNALS",
+              "TEP-SEPARATOR"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003957014996558428,
+              "query_embedding": 10.221489996183664,
+              "retrieval": 5.631882988382131,
+              "rerank": 121.17405101889744,
+              "total": 138.05775897344574
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S3",
+                "score": 0.9996591806411743,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9996591806411743,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.9995580315589905,
+                "bm25_rank": 2,
+                "dense_rank": 4,
+                "rrf_score": 0.53333336,
+                "rerank_score": 0.9995580315589905,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 0.7030764222145081,
+                "bm25_rank": 3,
+                "dense_rank": 3,
+                "rrf_score": 0.5,
+                "rerank_score": 0.7030764222145081,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-04",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S4"
+            ],
+            "ranked_ids": [
+              "RC01-S4",
+              "RC01-S2",
+              "RC01-S5"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.0036170240491628647,
+              "query_embedding": 9.998853027354926,
+              "retrieval": 5.479378974996507,
+              "rerank": 120.25631603319198,
+              "total": 136.80552801815793
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S4",
+                "score": 0.0020728912204504013,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.0020728912204504013,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S2",
+                "score": 0.0006022792658768594,
+                "bm25_rank": 2,
+                "dense_rank": 2,
+                "rrf_score": 0.6666667,
+                "rerank_score": 0.0006022792658768594,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S5",
+                "score": 0.00042935373494401574,
+                "bm25_rank": 3,
+                "dense_rank": 6,
+                "rrf_score": 0.39285713,
+                "rerank_score": 0.00042935373494401574,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-05",
+            "category": "sop_positive",
+            "relevant": [
+              "RC01-S5"
+            ],
+            "ranked_ids": [
+              "RC01-S5",
+              "RC01-S2",
+              "RC01-S4"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003606954123824835,
+              "query_embedding": 10.020563961006701,
+              "retrieval": 5.536213982850313,
+              "rerank": 114.99626695876941,
+              "total": 131.6306689986959
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "RC01-S5",
+                "score": 0.9963330030441284,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9963330030441284,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S2",
+                "score": 0.23739786446094513,
+                "bm25_rank": 2,
+                "dense_rank": 4,
+                "rrf_score": 0.53333336,
+                "rerank_score": 0.23739786446094513,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S4",
+                "score": 0.22368045151233673,
+                "bm25_rank": 3,
+                "dense_rank": 2,
+                "rrf_score": 0.5833334,
+                "rerank_score": 0.22368045151233673,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-06",
+            "category": "reference_positive",
+            "relevant": [
+              "TEP-SIGNALS"
+            ],
+            "ranked_ids": [
+              "TEP-SIGNALS",
+              "TEP-SEPARATOR",
+              "RC01-S2"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003356020897626877,
+              "query_embedding": 9.908434993121773,
+              "retrieval": 5.493775010108948,
+              "rerank": 123.20004700450227,
+              "total": 139.64291097363457
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.9998114705085754,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9998114705085754,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 0.0004750209045596421,
+                "bm25_rank": 6,
+                "dense_rank": 4,
+                "rrf_score": 0.34285715,
+                "rerank_score": 0.0004750209045596421,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S2",
+                "score": 5.0287191697862e-05,
+                "bm25_rank": 4,
+                "dense_rank": 2,
+                "rrf_score": 0.53333336,
+                "rerank_score": 5.0287191697862e-05,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-07",
+            "category": "reference_positive",
+            "relevant": [
+              "TEP-SEPARATOR"
+            ],
+            "ranked_ids": [
+              "TEP-SEPARATOR",
+              "TEP-SIGNALS",
+              "RC01-S3"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003988039679825306,
+              "query_embedding": 10.068915027659386,
+              "retrieval": 5.525854998268187,
+              "rerank": 120.59954699361697,
+              "total": 137.17025000369176
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 0.9997661709785461,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9997661709785461,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.24490931630134583,
+                "bm25_rank": 8,
+                "dense_rank": 2,
+                "rrf_score": 0.44444445,
+                "rerank_score": 0.24490931630134583,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.016531463712453842,
+                "bm25_rank": 2,
+                "dense_rank": 4,
+                "rrf_score": 0.53333336,
+                "rerank_score": 0.016531463712453842,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-08",
+            "category": "reference_positive",
+            "relevant": [
+              "APM-STICTION"
+            ],
+            "ranked_ids": [
+              "APM-STICTION",
+              "RC01-S3",
+              "TEP-SIGNALS"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.00357598764821887,
+              "query_embedding": 10.46585600124672,
+              "retrieval": 5.583822960034013,
+              "rerank": 121.11646501580253,
+              "total": 138.37345998035744
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-STICTION",
+                "score": 0.9998948574066162,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9998948574066162,
+                "rank": 1
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.9898784160614014,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": 0.9898784160614014,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.9595843553543091,
+                "bm25_rank": 5,
+                "dense_rank": 2,
+                "rrf_score": 0.5,
+                "rerank_score": 0.9595843553543091,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-09",
+            "category": "reference_positive",
+            "relevant": [
+              "APM-LOSTFEED"
+            ],
+            "ranked_ids": [
+              "APM-LOSTFEED",
+              "APM-STICTION",
+              "TEP-SIGNALS"
+            ],
+            "top1": true,
+            "top3": true,
+            "timing_ms": {
+              "prepare": 0.003335997462272644,
+              "query_embedding": 10.046161944046617,
+              "retrieval": 5.438622960355133,
+              "rerank": 117.94877599459141,
+              "total": 134.47977596661076
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-LOSTFEED",
+                "score": 0.9999493360519409,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9999493360519409,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.036482300609350204,
+                "bm25_rank": 2,
+                "dense_rank": 2,
+                "rrf_score": 0.6666667,
+                "rerank_score": 0.036482300609350204,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.004903906956315041,
+                "bm25_rank": null,
+                "dense_rank": 9,
+                "rrf_score": 0.1,
+                "rerank_score": 0.004903906956315041,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-10",
+            "category": "wrong_equipment_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "TEP-SEPARATOR",
+              "APM-STICTION",
+              "TEP-SIGNALS"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.0035259872674942017,
+              "query_embedding": 9.94155602529645,
+              "retrieval": 5.528812005650252,
+              "rerank": 112.96837002737448,
+              "total": 129.4157539959997
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "TEP-SEPARATOR",
+                "score": 0.8726242184638977,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.8726242184638977,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.0012026653857901692,
+                "bm25_rank": 3,
+                "dense_rank": 3,
+                "rrf_score": 0.5,
+                "rerank_score": 0.0012026653857901692,
+                "rank": 2
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.0007358129951171577,
+                "bm25_rank": 4,
+                "dense_rank": 2,
+                "rrf_score": 0.53333336,
+                "rerank_score": 0.0007358129951171577,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-11",
+            "category": "no_procedure_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "APM-STICTION",
+              "TEP-SIGNALS",
+              "RC01-S3"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.004669011104851961,
+              "query_embedding": 9.934653004165739,
+              "retrieval": 5.617065995465964,
+              "rerank": 111.34358402341604,
+              "total": 127.900781983044
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-STICTION",
+                "score": 0.003330616746097803,
+                "bm25_rank": 4,
+                "dense_rank": 3,
+                "rrf_score": 0.45,
+                "rerank_score": 0.003330616746097803,
+                "rank": 1
+              },
+              {
+                "id": "TEP-SIGNALS",
+                "score": 0.0018025141907855868,
+                "bm25_rank": 2,
+                "dense_rank": 1,
+                "rrf_score": 0.8333334,
+                "rerank_score": 0.0018025141907855868,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S3",
+                "score": 0.0006339595420286059,
+                "bm25_rank": 1,
+                "dense_rank": 2,
+                "rrf_score": 0.8333334,
+                "rerank_score": 0.0006339595420286059,
+                "rank": 3
+              }
+            ]
+          },
+          {
+            "id": "challenge-12",
+            "category": "reference_to_procedure_hold",
+            "relevant": [],
+            "ranked_ids": [
+              "APM-LOSTFEED",
+              "APM-STICTION",
+              "RC01-S4"
+            ],
+            "top1": null,
+            "top3": null,
+            "timing_ms": {
+              "prepare": 0.0037669669836759567,
+              "query_embedding": 9.68342402484268,
+              "retrieval": 5.368412006646395,
+              "rerank": 119.18656894704327,
+              "total": 135.2710939827375
+            },
+            "execution": {
+              "requested_mode": "hybrid_rerank",
+              "executed_mode": "hybrid_rerank",
+              "backend": "qdrant_server",
+              "device": "cuda",
+              "dtype": "float32",
+              "models": {
+                "bge": {
+                  "repo": "BAAI/bge-m3",
+                  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+                  "files_verified": true
+                },
+                "reranker": {
+                  "repo": "Qwen/Qwen3-Reranker-0.6B",
+                  "revision": "e61197ed45024b0ed8a2d74b80b4d909f1255473",
+                  "files_verified": true
+                }
+              },
+              "corpus_sha256": "3467418a071ce708a76e16da5f7bbf93867c53552ce7d3e821db1590db09f27f",
+              "candidate_limit": 9,
+              "filters": null,
+              "preparation_ms": {
+                "bm25_index": 63.61638801172376,
+                "bge_load": 4344.341834017541,
+                "dense_index": 297.64425999019295,
+                "reranker_load": 2697.9801189736463
+              }
+            },
+            "hits": [
+              {
+                "id": "APM-LOSTFEED",
+                "score": 0.9993476271629333,
+                "bm25_rank": 1,
+                "dense_rank": 1,
+                "rrf_score": 1.0,
+                "rerank_score": 0.9993476271629333,
+                "rank": 1
+              },
+              {
+                "id": "APM-STICTION",
+                "score": 0.0007863494101911783,
+                "bm25_rank": 2,
+                "dense_rank": 3,
+                "rrf_score": 0.5833334,
+                "rerank_score": 0.0007863494101911783,
+                "rank": 2
+              },
+              {
+                "id": "RC01-S4",
+                "score": 0.00026054339832626283,
+                "bm25_rank": 3,
+                "dense_rank": 4,
+                "rrf_score": 0.45,
+                "rerank_score": 0.00026054339832626283,
+                "rank": 3
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "preparation_ms": {
+    "bm25_index": 63.61638801172376,
+    "bge_load": 4344.341834017541,
+    "dense_index": 297.64425999019295,
+    "reranker_load": 2697.9801189736463
+  },
+  "elapsed_seconds": 11.999135906982701,
+  "cases": [
+    {
+      "case": "compound",
+      "action": "PROVIDE_SOP",
+      "evidence_ids": [
+        "RC01-S1",
+        "RC01-S2",
+        "RC01-S3",
+        "RC01-S4",
+        "RC01-S5"
+      ],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 2
+    },
+    {
+      "case": "recover",
+      "action": "PROVIDE_SOP",
+      "evidence_ids": [
+        "RC01-S1",
+        "RC01-S2",
+        "RC01-S3",
+        "RC01-S4",
+        "RC01-S5"
+      ],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 3
+    },
+    {
+      "case": "missing",
+      "action": "ESCALATE",
+      "evidence_ids": [],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 3
+    },
+    {
+      "case": "wrong-mode",
+      "action": "ESCALATE",
+      "evidence_ids": [],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 2
+    },
+    {
+      "case": "normal",
+      "action": "ESCALATE",
+      "evidence_ids": [],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 2
+    },
+    {
+      "case": "stale",
+      "action": "ESCALATE",
+      "evidence_ids": [],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 3
+    },
+    {
+      "case": "wrong-unit",
+      "action": "ESCALATE",
+      "evidence_ids": [],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 3
+    },
+    {
+      "case": "other-equipment",
+      "action": "ESCALATE",
+      "evidence_ids": [],
+      "backend": "deterministic_rules",
+      "zoro_status": "NOT_RUN",
+      "steps": 2
+    }
+  ]
+}

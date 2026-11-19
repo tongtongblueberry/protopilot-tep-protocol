@@ -10,6 +10,10 @@ TEP(Tennessee Eastman Process) 시뮬레이션에서 운영자가 알람을 받�
 
 ## 시연
 
+[단계별 RAG 화면](examples/rag-flow.html)을 내려받아 열면 SGS A100에서 실행한 8개 사건의 관측, 검색 순위, 추가 정보 반환과 최종 안내를 따라갈 수 있다. BM25·BGE-M3·RRF·Qwen 보기는 보관된 검색 결과를 표시한다. [화면에 사용한 기록](examples/rag-flow-data.json)
+
+[![관측 확인부터 최종 안내까지 따라가는 RAG 실행 기록](examples/rag-flow.png)](examples/rag-flow.html)
+
 1. [RAG 실행 안내](rag/README.md)에 따라 복합 알람을 연다. 계기 4개와 운전 모드가 카드의 적용 조건을 만족하면, 검색한 조항과 등록된 판본을 대조해 한국어 5단계와 영어 근거를 표시한다.
 2. 같은 입력에서 냉각수 출구 측정값을 빼 본다. `recover`는 추가 관측이 돌아온 뒤 절차를 제시한다. `missing`은 측정값을 받지 못해 운영자 검토로 넘긴다. 각 사건의 판단 이력에서 이 차이를 볼 수 있다.
 3. [고정 평가 질문](rag/data/challenge.json)으로 용어 검색, 의미 검색 결합, 재정렬의 결과를 비교한다. 문서 검색 점수와 절차의 적용 조건은 따로 기록한다.

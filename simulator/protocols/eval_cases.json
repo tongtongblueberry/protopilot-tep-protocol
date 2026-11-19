@@ -1,0 +1,3085 @@
+{
+  "schema_version": "1.0",
+  "protocol_revision": "tep-rag-demo.1",
+  "visibility": "EVALUATOR_ONLY",
+  "fixtures": [
+    {
+      "case_id": "FD-A-FLOW",
+      "public_fixture_ref": "public_episodes.json#/episodes/0",
+      "expected_opening": {
+        "rule_id": "FD-A-FLOW-source-not-confirmed",
+        "request_tags": [],
+        "request_fields": [
+          "A_FEED_SUPPLY_STATUS",
+          "A_TARGET_CHANGE_TRACE"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "FD-A-FLOW-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 13,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.3,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [],
+        "operator_records": [
+          {
+            "field": "A_FEED_SUPPLY_STATUS",
+            "value": "UNAVAILABLE",
+            "confirmed_by": "feed_contact",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 20
+            }
+          },
+          {
+            "field": "A_TARGET_CHANGE_TRACE",
+            "value": "AUTOMATIC_OVERRIDE_RECORDED",
+            "confirmed_by": "shift_supervisor",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 21
+            }
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "FD-A-FLOW-verified-evidence",
+          "action": "PROVIDE_SOP",
+          "clause_id": "FD-A-FLOW-S2"
+        }
+      },
+      "counterchecks": [
+        {
+          "edit": {
+            "set": "retrieval_matches_active_card",
+            "to": false
+          },
+          "decision": "RETRIEVE_AGAIN",
+          "rule_id": "FD-A-FLOW-wrong-sop"
+        },
+        {
+          "edit": {
+            "set": "info_request_available",
+            "to": false
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-A-FLOW-source-unresolved"
+        },
+        {
+          "edit": {
+            "replace_at_entry": {
+              "XMEAS(7)": 2895
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-A-FLOW-operating-limit"
+        },
+        {
+          "edit": {
+            "replace_follow_up_field": {
+              "A_FEED_SUPPLY_STATUS": "AVAILABLE",
+              "A_TARGET_CHANGE_TRACE": "OPERATOR_APPROVAL_RECORDED"
+            }
+          },
+          "decision": "PROVIDE_SOP",
+          "rule_id": "FD-A-FLOW-planned-target"
+        }
+      ],
+      "archive_reference": {
+        "interpretation": "Source has controller/simulation outputs only. Timing and units verified; reports planted in this fixture have no archive equivalents.",
+        "archive_uri": "https://depts.washington.edu/control/LARRY/TE/IDVs/idv6.zip",
+        "archive_sha256": "42c36bd728c5a7f6607ebf5b8036234d4390cf182f4686e2411b573968c5dc97",
+        "locator": "y.dat 6, 8 x columns 1, 4; u.dat 6, 8 x columns 3, 4; r.dat 6, 8 x columns 1, 4; t.dat rows 6, 8",
+        "illustrative_numbers": "authored_static_analogue"
+      },
+      "closure_example": {
+        "cutoff_key": {
+          "tick": 15,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.5,
+        "observations": [
+          {
+            "observation_id": "obs-fd1-close-15-1",
+            "tag": "XMEAS(1)",
+            "unit": "kscmh",
+            "value_or_null": 0.237,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.5,
+            "available_at_sim_h": 1.5,
+            "available_key": {
+              "tick": 15,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-fd1-close-15-2",
+            "tag": "XMEAS(4)",
+            "unit": "kscmh",
+            "value_or_null": 9.42,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.5,
+            "available_at_sim_h": 1.5,
+            "available_key": {
+              "tick": 15,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-fd1-close-15-3",
+            "tag": "XMEAS(7)",
+            "unit": "kPa(g)",
+            "value_or_null": 2708,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.5,
+            "available_at_sim_h": 1.5,
+            "available_key": {
+              "tick": 15,
+              "event_seq": 3
+            }
+          },
+          {
+            "observation_id": "obs-fd1-close-15-4",
+            "tag": "XMEAS(9)",
+            "unit": "°C",
+            "value_or_null": 120.4,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.5,
+            "available_at_sim_h": 1.5,
+            "available_key": {
+              "tick": 15,
+              "event_seq": 4
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "field": "A_FEED_SUPPLY_STATUS",
+            "value": "AVAILABLE",
+            "confirmed_by": "feed_contact",
+            "available_at_sim_h": 1.5,
+            "available_key": {
+              "tick": 15,
+              "event_seq": 20
+            }
+          },
+          {
+            "field": "SHIFT_DISPOSITION",
+            "value": "RECOVERY_OBSERVED_AND_ACKNOWLEDGED",
+            "confirmed_by": "shift_supervisor",
+            "available_at_sim_h": 1.5,
+            "available_key": {
+              "tick": 15,
+              "event_seq": 25
+            }
+          }
+        ],
+        "expected_lifecycle": "CLOSE",
+        "authority": "Supervisor acknowledgement in authored replay fixture",
+        "negative_control": "Without the supervisor disposition, keep the episode open."
+      }
+    },
+    {
+      "case_id": "FD-AC-FLOW",
+      "public_fixture_ref": "public_episodes.json#/episodes/1",
+      "expected_opening": {
+        "rule_id": "FD-AC-FLOW-source-not-confirmed",
+        "request_tags": [],
+        "request_fields": [
+          "AC_HEADER_SUPPLY_STATUS",
+          "AC_VALVE_RESPONSE"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "FD-AC-FLOW-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 13,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.3,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [],
+        "operator_records": [
+          {
+            "field": "AC_HEADER_SUPPLY_STATUS",
+            "value": "CONSTRAINED",
+            "confirmed_by": "feed_contact",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 20
+            }
+          },
+          {
+            "field": "AC_VALVE_RESPONSE",
+            "value": "TRACKS_COMMAND",
+            "confirmed_by": "control_technician",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 21
+            }
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "FD-AC-FLOW-verified-evidence",
+          "action": "PROVIDE_SOP",
+          "clause_id": "FD-AC-FLOW-S2"
+        }
+      },
+      "counterchecks": [
+        {
+          "edit": {
+            "set": "retrieval_matches_active_card",
+            "to": false
+          },
+          "decision": "RETRIEVE_AGAIN",
+          "rule_id": "FD-AC-FLOW-wrong-sop"
+        },
+        {
+          "edit": {
+            "set": "info_request_available",
+            "to": false
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-AC-FLOW-source-unresolved"
+        },
+        {
+          "edit": {
+            "replace_at_entry": {
+              "XMEAS(7)": 2895
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-AC-FLOW-operating-limit"
+        },
+        {
+          "edit": {
+            "replace_follow_up_field": {
+              "AC_VALVE_RESPONSE": "DOES_NOT_TRACK"
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-AC-FLOW-case-escalation"
+        }
+      ],
+      "archive_reference": null
+    },
+    {
+      "case_id": "FD-A-C-RATIO",
+      "public_fixture_ref": "public_episodes.json#/episodes/2",
+      "expected_opening": {
+        "rule_id": "FD-A-C-RATIO-source-not-confirmed",
+        "request_tags": [
+          "XMEASADD(27)",
+          "XMEASADD(28)",
+          "XMEASADD(29)"
+        ],
+        "request_fields": [
+          "FEED_BLEND_CHANGE_TRACE"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "FD-A-C-RATIO-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 13,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.3,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-fd3-lookup-13-1",
+            "tag": "XMEASADD(27)",
+            "unit": "mol %",
+            "value_or_null": 45.6,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-fd3-lookup-13-2",
+            "tag": "XMEASADD(28)",
+            "unit": "mol %",
+            "value_or_null": 0.52,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-fd3-lookup-13-3",
+            "tag": "XMEASADD(29)",
+            "unit": "mol %",
+            "value_or_null": 53.88,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 3
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "field": "FEED_BLEND_CHANGE_TRACE",
+            "value": "SUPPLY_CHANGE_CONFIRMED",
+            "confirmed_by": "feed_contact",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 20
+            }
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "FD-A-C-RATIO-verified-evidence",
+          "action": "PROVIDE_SOP",
+          "clause_id": "FD-A-C-RATIO-S2"
+        }
+      },
+      "counterchecks": [
+        {
+          "edit": {
+            "set": "retrieval_matches_active_card",
+            "to": false
+          },
+          "decision": "RETRIEVE_AGAIN",
+          "rule_id": "FD-A-C-RATIO-wrong-sop"
+        },
+        {
+          "edit": {
+            "set": "info_request_available",
+            "to": false
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-A-C-RATIO-source-unresolved"
+        },
+        {
+          "edit": {
+            "replace_at_entry": {
+              "XMEAS(7)": 2895
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-A-C-RATIO-operating-limit"
+        }
+      ],
+      "archive_reference": null
+    },
+    {
+      "case_id": "FD-B-TREND",
+      "public_fixture_ref": "public_episodes.json#/episodes/3",
+      "expected_opening": {
+        "rule_id": "FD-B-TREND-source-not-confirmed",
+        "request_tags": [
+          "XMEASADD(27)",
+          "XMEASADD(28)",
+          "XMEASADD(29)"
+        ],
+        "request_fields": [
+          "PURGE_PRESSURE_LOOP_STATUS"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "FD-B-TREND-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 13,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.3,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-fd4-lookup-13-1",
+            "tag": "XMEASADD(27)",
+            "unit": "mol %",
+            "value_or_null": 48.2,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-fd4-lookup-13-2",
+            "tag": "XMEASADD(28)",
+            "unit": "mol %",
+            "value_or_null": 1.1,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-fd4-lookup-13-3",
+            "tag": "XMEASADD(29)",
+            "unit": "mol %",
+            "value_or_null": 50.7,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 3
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "field": "PURGE_PRESSURE_LOOP_STATUS",
+            "value": "ACTIVE_RESPONDING",
+            "confirmed_by": "control_technician",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 20
+            }
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "FD-B-TREND-verified-evidence",
+          "action": "PROVIDE_SOP",
+          "clause_id": "FD-B-TREND-S2"
+        }
+      },
+      "counterchecks": [
+        {
+          "edit": {
+            "set": "retrieval_matches_active_card",
+            "to": false
+          },
+          "decision": "RETRIEVE_AGAIN",
+          "rule_id": "FD-B-TREND-wrong-sop"
+        },
+        {
+          "edit": {
+            "set": "info_request_available",
+            "to": false
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-B-TREND-source-unresolved"
+        },
+        {
+          "edit": {
+            "replace_at_entry": {
+              "XMEAS(7)": 2895
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-B-TREND-operating-limit"
+        },
+        {
+          "edit": {
+            "replace_follow_up_field": {
+              "PURGE_PRESSURE_LOOP_STATUS": "SATURATED_OR_UNAVAILABLE"
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-B-TREND-case-escalation"
+        }
+      ],
+      "archive_reference": null
+    },
+    {
+      "case_id": "FD-MIXED-COMPOSITION",
+      "public_fixture_ref": "public_episodes.json#/episodes/4",
+      "expected_opening": {
+        "rule_id": "FD-MIXED-COMPOSITION-source-not-confirmed",
+        "request_tags": [
+          "XMEASADD(27)",
+          "XMEASADD(28)",
+          "XMEASADD(29)"
+        ],
+        "request_fields": [
+          "COMPOSITION_REVIEW_STATUS"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "FD-MIXED-COMPOSITION-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 13,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.3,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-fd5-lookup-13-1",
+            "tag": "XMEASADD(27)",
+            "unit": "mol %",
+            "value_or_null": 45.4,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-fd5-lookup-13-2",
+            "tag": "XMEASADD(28)",
+            "unit": "mol %",
+            "value_or_null": 1.15,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-fd5-lookup-13-3",
+            "tag": "XMEASADD(29)",
+            "unit": "mol %",
+            "value_or_null": 53.45,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 3
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "field": "COMPOSITION_REVIEW_STATUS",
+            "value": "ALIGNED_BOTH_CONFIRMED",
+            "confirmed_by": "process_owner",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 20
+            }
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "FD-MIXED-COMPOSITION-verified-evidence",
+          "action": "PROVIDE_SOP",
+          "clause_id": "FD-MIXED-COMPOSITION-S2"
+        }
+      },
+      "counterchecks": [
+        {
+          "edit": {
+            "set": "retrieval_matches_active_card",
+            "to": false
+          },
+          "decision": "RETRIEVE_AGAIN",
+          "rule_id": "FD-MIXED-COMPOSITION-wrong-sop"
+        },
+        {
+          "edit": {
+            "set": "info_request_available",
+            "to": false
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-MIXED-COMPOSITION-source-unresolved"
+        },
+        {
+          "edit": {
+            "replace_at_entry": {
+              "XMEAS(7)": 2895
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-MIXED-COMPOSITION-operating-limit"
+        },
+        {
+          "edit": {
+            "replace_follow_up_field": {
+              "COMPOSITION_REVIEW_STATUS": "SAMPLES_CONFLICT"
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-MIXED-COMPOSITION-case-escalation"
+        }
+      ],
+      "archive_reference": null
+    },
+    {
+      "case_id": "FD-D-TEMP",
+      "public_fixture_ref": "public_episodes.json#/episodes/5",
+      "expected_opening": {
+        "rule_id": "FD-D-TEMP-source-not-confirmed",
+        "request_tags": [
+          "XMEASADD(2)"
+        ],
+        "request_fields": [
+          "D_SUPPLY_TEMP_REVIEW"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "FD-D-TEMP-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 13,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.3,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-fd6-lookup-13-1",
+            "tag": "XMEASADD(2)",
+            "unit": "°C",
+            "value_or_null": 49.6,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.3,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 1
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "field": "D_SUPPLY_TEMP_REVIEW",
+            "value": "CHANGE_CONFIRMED",
+            "confirmed_by": "feed_contact",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 20
+            }
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "FD-D-TEMP-verified-evidence",
+          "action": "PROVIDE_SOP",
+          "clause_id": "FD-D-TEMP-S2"
+        }
+      },
+      "counterchecks": [
+        {
+          "edit": {
+            "set": "retrieval_matches_active_card",
+            "to": false
+          },
+          "decision": "RETRIEVE_AGAIN",
+          "rule_id": "FD-D-TEMP-wrong-sop"
+        },
+        {
+          "edit": {
+            "set": "info_request_available",
+            "to": false
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-D-TEMP-source-unresolved"
+        },
+        {
+          "edit": {
+            "replace_at_entry": {
+              "XMEAS(7)": 2895
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-D-TEMP-operating-limit"
+        }
+      ],
+      "archive_reference": null
+    },
+    {
+      "case_id": "FD-AC-TEMP",
+      "public_fixture_ref": "public_episodes.json#/episodes/6",
+      "expected_opening": {
+        "rule_id": "FD-AC-TEMP-source-not-confirmed",
+        "request_tags": [
+          "XMEASADD(4)",
+          "XMEASADD(27)",
+          "XMEASADD(28)",
+          "XMEASADD(29)"
+        ],
+        "request_fields": [
+          "AC_SUPPLY_TEMP_REVIEW"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "FD-AC-TEMP-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 13,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.3,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-fd7-lookup-13-1",
+            "tag": "XMEASADD(4)",
+            "unit": "°C",
+            "value_or_null": 48.8,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.3,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-fd7-lookup-13-2",
+            "tag": "XMEASADD(27)",
+            "unit": "mol %",
+            "value_or_null": 48.3,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-fd7-lookup-13-3",
+            "tag": "XMEASADD(28)",
+            "unit": "mol %",
+            "value_or_null": 0.51,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 3
+            }
+          },
+          {
+            "observation_id": "obs-fd7-lookup-13-4",
+            "tag": "XMEASADD(29)",
+            "unit": "mol %",
+            "value_or_null": 51.19,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.2,
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 4
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "field": "AC_SUPPLY_TEMP_REVIEW",
+            "value": "CHANGE_CONFIRMED",
+            "confirmed_by": "feed_contact",
+            "available_at_sim_h": 1.3,
+            "available_key": {
+              "tick": 13,
+              "event_seq": 20
+            }
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "FD-AC-TEMP-verified-evidence",
+          "action": "PROVIDE_SOP",
+          "clause_id": "FD-AC-TEMP-S2"
+        }
+      },
+      "counterchecks": [
+        {
+          "edit": {
+            "set": "retrieval_matches_active_card",
+            "to": false
+          },
+          "decision": "RETRIEVE_AGAIN",
+          "rule_id": "FD-AC-TEMP-wrong-sop"
+        },
+        {
+          "edit": {
+            "set": "info_request_available",
+            "to": false
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-AC-TEMP-source-unresolved"
+        },
+        {
+          "edit": {
+            "replace_at_entry": {
+              "XMEAS(7)": 2895
+            }
+          },
+          "decision": "ESCALATE",
+          "rule_id": "FD-AC-TEMP-operating-limit"
+        }
+      ],
+      "archive_reference": null
+    },
+    {
+      "case_id": "HX-CASE-R01",
+      "public_fixture_ref": "public_episodes.json#/episodes/7",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "HX-CARD-R01-S02",
+        "request_tags": [
+          "XMEASADD(5)",
+          "XMEASADD(6)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 201,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 2.01,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-7194b987224b5990aeb5a50fcf8423e7",
+            "tag": "XMEASADD(5)",
+            "value_or_null": 39.8,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 4
+            },
+            "available_wall_ns": "304000000"
+          },
+          {
+            "observation_id": "obs-4e6d2d1041b35d1b9150a60ffa223799",
+            "tag": "XMEASADD(6)",
+            "value_or_null": 101.9,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 8
+            },
+            "available_wall_ns": "308000000"
+          },
+          {
+            "observation_id": "obs-64e93c1c748d5b91a1014b727b689e89",
+            "tag": "XMEAS(7)",
+            "value_or_null": 2758,
+            "unit": "kPa(g)",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 24
+            },
+            "available_wall_ns": "324000000"
+          },
+          {
+            "observation_id": "obs-f571f69ba0c35f72afbaad8047ebc90f",
+            "tag": "XMEAS(8)",
+            "value_or_null": 74,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 28
+            },
+            "available_wall_ns": "328000000"
+          },
+          {
+            "observation_id": "obs-a6f24c05c2ab5129bac25a5fb575c028",
+            "tag": "XMEAS(9)",
+            "value_or_null": 126.1,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 32
+            },
+            "available_wall_ns": "332000000"
+          },
+          {
+            "observation_id": "obs-e9888c747c4c550b9e04ee4dc0e1faf3",
+            "tag": "XMEAS(21)",
+            "value_or_null": 95.9,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 36
+            },
+            "available_wall_ns": "336000000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "HX-CARD-R01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "HX-CARD-R01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-R01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "snapshot_context_valid": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-R01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "냉각수 입구 온도와 유량을 먼저 요청한다. 두 값이 확인된 후에도 압력이 다시 오르는지 관측하고, 냉각 조건으로 설명할 수 없으면 담당자에게 넘긴다."
+    },
+    {
+      "case_id": "HX-CASE-R02",
+      "public_fixture_ref": "public_episodes.json#/episodes/8",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "HX-CARD-R02-S02",
+        "request_tags": [
+          "XMEASADD(5)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 201,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 2.01,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-b169ceba71745d11ad3b9d392fa54596",
+            "tag": "XMEASADD(5)",
+            "value_or_null": 34.9,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 4
+            },
+            "available_wall_ns": "304000000"
+          },
+          {
+            "observation_id": "obs-f1164ab40c3d58bba346b7e5994c74fd",
+            "tag": "XMEAS(7)",
+            "value_or_null": 2741,
+            "unit": "kPa(g)",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 24
+            },
+            "available_wall_ns": "324000000"
+          },
+          {
+            "observation_id": "obs-5dd6e19a129a57e68c3cbd3854e5a970",
+            "tag": "XMEAS(8)",
+            "value_or_null": 71,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 28
+            },
+            "available_wall_ns": "328000000"
+          },
+          {
+            "observation_id": "obs-ec8f54924206591bb1e40e64d80885b5",
+            "tag": "XMEAS(9)",
+            "value_or_null": 126.5,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 32
+            },
+            "available_wall_ns": "332000000"
+          },
+          {
+            "observation_id": "obs-c724da2f08d75b449bebc604c8ee3e14",
+            "tag": "XMEAS(21)",
+            "value_or_null": 97.0,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 36
+            },
+            "available_wall_ns": "336000000"
+          },
+          {
+            "observation_id": "obs-d8fa8c552af75de4900b832582bce916",
+            "tag": "XMV(10)",
+            "value_or_null": 57.0,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 40
+            },
+            "available_wall_ns": "340000000"
+          },
+          {
+            "observation_id": "obs-e334d989b4b5545cb652fe29745fcb3b",
+            "tag": "XMEASADD(6)",
+            "value_or_null": 96.1,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 44
+            },
+            "available_wall_ns": "344000000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "HX-CARD-R02-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "HX-CARD-R02-S01"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-R02-S04"
+          }
+        },
+        {
+          "context_override": {
+            "snapshot_context_valid": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-R02-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "유량과 명령의 시각을 맞추고 입구 온도를 추가 확인한다. 계기와 공급 조건을 확인한 뒤에도 변화가 맞지 않으면 밸브 응답 검토를 요청한다."
+    },
+    {
+      "case_id": "HX-CASE-C01",
+      "public_fixture_ref": "public_episodes.json#/episodes/9",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "HX-CARD-C01-S02",
+        "request_tags": [
+          "XMEASADD(7)",
+          "XMEASADD(8)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 201,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 2.01,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-b7aa137f71df52178e4bfe81ae271bd0",
+            "tag": "XMEASADD(7)",
+            "value_or_null": 42.1,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 4
+            },
+            "available_wall_ns": "304000000"
+          },
+          {
+            "observation_id": "obs-42cfb23cfedb5faeafeba6c72d70437e",
+            "tag": "XMEASADD(8)",
+            "value_or_null": 101.5,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 8
+            },
+            "available_wall_ns": "308000000"
+          },
+          {
+            "observation_id": "obs-c576907a776d5a5a9724f5d968831cbd",
+            "tag": "XMEAS(11)",
+            "value_or_null": 86.0,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 24
+            },
+            "available_wall_ns": "324000000"
+          },
+          {
+            "observation_id": "obs-9c8c6694d12558d9896626ac896e7ebb",
+            "tag": "XMEAS(12)",
+            "value_or_null": 58.0,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 28
+            },
+            "available_wall_ns": "328000000"
+          },
+          {
+            "observation_id": "obs-af2e9b978182587abd1eaab6d08ca488",
+            "tag": "XMEAS(13)",
+            "value_or_null": 2666,
+            "unit": "kPa(g)",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 32
+            },
+            "available_wall_ns": "332000000"
+          },
+          {
+            "observation_id": "obs-138df801cfa1531b92eeb048dab0c79e",
+            "tag": "XMEAS(22)",
+            "value_or_null": 62.2,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 36
+            },
+            "available_wall_ns": "336000000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "HX-CARD-C01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "HX-CARD-C01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-C01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "snapshot_context_valid": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-C01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "응축기 냉각수 입구 온도와 유량을 요청하고 분리기 수위 변화를 관찰한다. 분리기와 응축기 상태를 먼저 검토한다."
+    },
+    {
+      "case_id": "HX-CASE-C02",
+      "public_fixture_ref": "public_episodes.json#/episodes/10",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "HX-CARD-C02-S02",
+        "request_tags": [
+          "XMEASADD(7)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 201,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 2.01,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-135d598764aa5c63afdec871910f0266",
+            "tag": "XMEASADD(7)",
+            "value_or_null": 41.8,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 4
+            },
+            "available_wall_ns": "304000000"
+          },
+          {
+            "observation_id": "obs-17f93fa3634354b7afab4ef33a0b4756",
+            "tag": "XMEAS(11)",
+            "value_or_null": 87.2,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 24
+            },
+            "available_wall_ns": "324000000"
+          },
+          {
+            "observation_id": "obs-a3a75081593f57e692e2592908c61881",
+            "tag": "XMEAS(12)",
+            "value_or_null": 63.1,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 28
+            },
+            "available_wall_ns": "328000000"
+          },
+          {
+            "observation_id": "obs-c5c9bf0c126454e5a57c9e068595b4e1",
+            "tag": "XMEAS(13)",
+            "value_or_null": 2680,
+            "unit": "kPa(g)",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 32
+            },
+            "available_wall_ns": "332000000"
+          },
+          {
+            "observation_id": "obs-255564ab9c0a55ebabad6817d5531f99",
+            "tag": "XMEAS(22)",
+            "value_or_null": 65.4,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 36
+            },
+            "available_wall_ns": "336000000"
+          },
+          {
+            "observation_id": "obs-9715f003a01a5d35a89d410d4df980cf",
+            "tag": "XMV(11)",
+            "value_or_null": 56.0,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 40
+            },
+            "available_wall_ns": "340000000"
+          },
+          {
+            "observation_id": "obs-8ecbfa57dd4f5be6a053d1043cddf3f5",
+            "tag": "XMEASADD(8)",
+            "value_or_null": 106.1,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.01,
+            "available_at_sim_h": 2.01,
+            "available_key": {
+              "tick": 201,
+              "event_seq": 44
+            },
+            "available_wall_ns": "344000000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "HX-CARD-C02-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "HX-CARD-C02-S01"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-C02-S04"
+          }
+        },
+        {
+          "context_override": {
+            "snapshot_context_valid": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "HX-CARD-C02-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "응축기 냉각수 입구 온도 이력을 추가 요청한다. 냉각수 자체가 달라진 경우와 명령 후 유량이 따라오지 않는 경우를 각각 검토한다."
+    },
+    {
+      "case_id": "EX-CASE-RQ01",
+      "public_fixture_ref": "public_episodes.json#/episodes/11",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-RQ01-S02",
+        "request_tags": [
+          "XMEAS(40)",
+          "XMEAS(41)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 251,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.51,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-dc8932dc197568f2691bffba",
+            "tag": "XMEAS(40)",
+            "value_or_null": 50.9,
+            "unit": "mol %",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.25,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2510010000"
+          },
+          {
+            "observation_id": "obs-0be923e6d6b25e9295a5c199",
+            "tag": "XMEAS(41)",
+            "value_or_null": 46.2,
+            "unit": "mol %",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.25,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 2
+            },
+            "available_wall_ns": "2510020000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "EX-CARD-RQ01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-RQ01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-RQ01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-RQ01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-RQ01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "새 분석값의 변화를 이전의 다른 시료와 비교한다. 공급 조성이나 운전 목표 변화도 함께 검토한다. 제품 조성 변화가 계속되면 품질 담당에게 성분 기록과 시점, 판단에 남은 불확실성을 전달한다."
+    },
+    {
+      "case_id": "EX-CASE-SH01",
+      "public_fixture_ref": "public_episodes.json#/episodes/12",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-SH01-S02",
+        "request_tags": [
+          "XMV(9)",
+          "XMEAS(14)",
+          "XMEAS(38)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 251,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.51,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-f8be3fc29af016e9b3ef5fbd",
+            "tag": "XMV(9)",
+            "value_or_null": 47.8,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2510010000"
+          },
+          {
+            "observation_id": "obs-92ff206144ebe7e6e8e637fd",
+            "tag": "XMEAS(14)",
+            "value_or_null": 25.1,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 2
+            },
+            "available_wall_ns": "2510020000"
+          },
+          {
+            "observation_id": "obs-fceab2e1aed6bd999fde0143",
+            "tag": "XMEAS(38)",
+            "value_or_null": 1.12,
+            "unit": "mol %",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.25,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 3
+            },
+            "available_wall_ns": "2510030000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "EX-CARD-SH01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-SH01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-SH01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-SH01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-SH01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "증기 명령, 모형의 증기 유량 표시, 공급 유량과 제품 E 분석의 추세를 같이 본다. 증기 명령에 비해 증기 표시량이 따라오지 않으면 열공급 담당이 검토할 근거를 남긴다. 제품 E 편차가 계속되면 품질 담당에게도 전달한다."
+    },
+    {
+      "case_id": "EX-CASE-RH01",
+      "public_fixture_ref": "public_episodes.json#/episodes/13",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-RH01-S02",
+        "request_tags": [
+          "XMEASADD(5)",
+          "XMEASADD(6)",
+          "XMV(12)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 251,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.51,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-427a10034115ecfc8aebcfd2",
+            "tag": "XMEASADD(5)",
+            "value_or_null": 35.1,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2510010000"
+          },
+          {
+            "observation_id": "obs-c8cc9a71434c1952fdbb1e0f",
+            "tag": "XMEASADD(6)",
+            "value_or_null": 94.2,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 2
+            },
+            "available_wall_ns": "2510020000"
+          },
+          {
+            "observation_id": "obs-51fe493596128c20d45b3c11",
+            "tag": "XMV(12)",
+            "value_or_null": 50,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 3
+            },
+            "available_wall_ns": "2510030000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "EX-CARD-RH01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-RH01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-RH01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-RH01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-RH01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "입구 온도, 유량, 수위와 교반기 명령이 비슷한 조건에서도 열 제거 추세가 이전과 달라졌는지 검토한다. 공급 약화가 드러나면 냉각수 공급 및 밸브 응답 절차를 확인한다. 같은 공급 조건에서 편차가 남으면 반응기 열전달 검토를 운영자에게 요청한다."
+    },
+    {
+      "case_id": "EX-CASE-CH01",
+      "public_fixture_ref": "public_episodes.json#/episodes/14",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-CH01-S02",
+        "request_tags": [
+          "XMEASADD(7)",
+          "XMEASADD(8)",
+          "XMEAS(5)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 251,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.51,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-b87a359603c650fd1970f04a",
+            "tag": "XMEASADD(7)",
+            "value_or_null": 34.9,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2510010000"
+          },
+          {
+            "observation_id": "obs-adf991244a3419181c5ad813",
+            "tag": "XMEASADD(8)",
+            "value_or_null": 49.5,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 2
+            },
+            "available_wall_ns": "2510020000"
+          },
+          {
+            "observation_id": "obs-397df3b474440b9c7e4158b0",
+            "tag": "XMEAS(5)",
+            "value_or_null": 27.1,
+            "unit": "kscmh",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 3
+            },
+            "available_wall_ns": "2510030000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "EX-CARD-CH01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-CH01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-CH01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-CH01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-CH01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "냉각수 입구·출구·유량과 분리기 온도·압력·수위를 함께 본다. 순환 기체 유량 차이가 있는 구간은 열전달을 바로 비교하지 않는다. 비교 가능한 구간에서도 편차가 남으면 분리기·응축기 담당에게 검토를 요청한다."
+    },
+    {
+      "case_id": "EX-CASE-AR01",
+      "public_fixture_ref": "public_episodes.json#/episodes/15",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-AR01-S02",
+        "request_tags": [
+          "XMV(7)",
+          "XMV(8)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 251,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.51,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-f728a8d018030881aec3c3b0",
+            "tag": "XMV(7)",
+            "value_or_null": 38.6,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.42,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2510010000"
+          },
+          {
+            "observation_id": "obs-47215c83401ccde3df4e03b1",
+            "tag": "XMV(8)",
+            "value_or_null": 45.9,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.42,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 2
+            },
+            "available_wall_ns": "2510020000"
+          },
+          {
+            "observation_id": "obs-970ea7fe7636175604c30e45",
+            "tag": "XMV(7)",
+            "value_or_null": 38.6,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 3
+            },
+            "available_wall_ns": "2510030000"
+          },
+          {
+            "observation_id": "obs-d18a7b3451f4dfa03a83c24a",
+            "tag": "XMV(8)",
+            "value_or_null": 45.9,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 4
+            },
+            "available_wall_ns": "2510040000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "EX-CARD-AR01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-AR01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-AR01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-AR01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-AR01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "각 밸브 명령과 유량·수위의 변화 순서를 따로 기록한다. 수위 차이와 유량 응답 지연을 운영자에게 넘긴다. 밸브 실제 위치를 독립적으로 확인할 수 없는 경우 기계 원인을 열어 둔다."
+    },
+    {
+      "case_id": "EX-CASE-UF01",
+      "public_fixture_ref": "public_episodes.json#/episodes/16",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-UF01-S02",
+        "request_tags": [
+          "XMEAS(5)",
+          "XMEAS(11)",
+          "XMEAS(12)",
+          "XMEASADD(5)",
+          "XMEASADD(6)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 251,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.51,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-5edf739193c78520032de05d",
+            "tag": "XMEAS(5)",
+            "value_or_null": null,
+            "unit": "kscmh",
+            "quality": "BAD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2510010000"
+          },
+          {
+            "observation_id": "obs-252c929f33f624bc83b24758",
+            "tag": "XMEAS(11)",
+            "value_or_null": 80.7,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 2
+            },
+            "available_wall_ns": "2510020000"
+          },
+          {
+            "observation_id": "obs-c7e96c5bf1e8366ba3bba9ce",
+            "tag": "XMEAS(12)",
+            "value_or_null": 50.7,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 3
+            },
+            "available_wall_ns": "2510030000"
+          },
+          {
+            "observation_id": "obs-2590a47ed8ef26d5507847c4",
+            "tag": "XMEASADD(5)",
+            "value_or_null": 35.1,
+            "unit": "°C",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 4
+            },
+            "available_wall_ns": "2510040000"
+          },
+          {
+            "observation_id": "obs-1f0b70cf0f0a4a4d7f305801",
+            "tag": "XMEASADD(6)",
+            "value_or_null": 92.7,
+            "unit": "m³/h",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 5
+            },
+            "available_wall_ns": "2510050000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "ESCALATE",
+          "clause_id": "EX-CARD-UF01-S04"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-UF01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-UF01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-UF01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-UF01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "두 압력의 차이와 냉각·재순환·수위 추세를 대조한다. 한 가지 원인으로 귀속하기 어려우면 가능한 설명과 미확인 근거를 운영자에게 넘긴다."
+    },
+    {
+      "case_id": "EX-CASE-FC01",
+      "public_fixture_ref": "public_episodes.json#/episodes/17",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-FC01-S02",
+        "request_tags": [
+          "XMV(1)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 251,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.51,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-1a945dc42da7ddbbd865c718",
+            "tag": "XMV(1)",
+            "value_or_null": 63.2,
+            "unit": "%",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.51,
+            "available_at_sim_h": 2.51,
+            "available_key": {
+              "tick": 251,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2510010000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "PROVIDE_SOP",
+          "clause_id": "EX-CARD-FC01-S03"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-FC01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-FC01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-FC01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-FC01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "D 유량이 계속 흔들리고 명령이 비슷하면 공급팀에 당시 공급 가능 범위와 기록을 요청한다. 실제 공급압이나 밸브 위치는 독립 계기나 담당 기록에서 확인될 때까지 열어 둔다."
+    },
+    {
+      "case_id": "EX-CASE-IN01",
+      "public_fixture_ref": "public_episodes.json#/episodes/18",
+      "expected_opening": {
+        "action": "REQUEST_INFO",
+        "clause_id": "EX-CARD-IN01-S02",
+        "request_tags": [
+          "XMEAS(40)",
+          "XMEAS(41)"
+        ]
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 250,
+          "event_seq": 90
+        },
+        "t_decision_cutoff_sim_h": 2.5,
+        "release_when": "separate_lookup_response_has_been_published",
+        "observation_rows": [
+          {
+            "observation_id": "obs-1afc2b60cff69df8395bfe7a",
+            "tag": "XMEAS(40)",
+            "value_or_null": 47.4,
+            "unit": "mol %",
+            "quality": "BAD",
+            "sampled_at_sim_h_or_null": 2.25,
+            "available_at_sim_h": 2.5,
+            "available_key": {
+              "tick": 250,
+              "event_seq": 1
+            },
+            "available_wall_ns": "2500010000"
+          },
+          {
+            "observation_id": "obs-f6e2cffd01aeec4b0795dd06",
+            "tag": "XMEAS(41)",
+            "value_or_null": 43.8,
+            "unit": "mol %",
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 2.25,
+            "available_at_sim_h": 2.5,
+            "available_key": {
+              "tick": 250,
+              "event_seq": 2
+            },
+            "available_wall_ns": "2500020000"
+          }
+        ],
+        "operator_records": [],
+        "expected_after_publication": {
+          "action": "ESCALATE",
+          "clause_id": "EX-CARD-IN01-S04"
+        }
+      },
+      "counterchecks": [
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": true
+          },
+          "expected": {
+            "action": "RETRIEVE_AGAIN",
+            "clause_id": "EX-CARD-IN01-S01"
+          }
+        },
+        {
+          "context_override": {
+            "retrieval_match": false,
+            "retrieval_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-IN01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "lookup_remaining": false
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-IN01-S04"
+          }
+        },
+        {
+          "context_override": {
+            "operator_review_required": true
+          },
+          "expected": {
+            "action": "ESCALATE",
+            "clause_id": "EX-CARD-IN01-S04"
+          }
+        }
+      ],
+      "scenario_values_origin": "team_authored_synthetic_observations_and_example_alarms",
+      "independent_decision_ko": "유효한 새 시료가 들어오면 G·H 성분을 함께 검토한다. 품질 플래그가 계속 불량이면 계기·품질 담당에게 제품 유량 추세와 함께 이관한다."
+    },
+    {
+      "case_id": "SP-RATE",
+      "public_fixture_ref": "public_episodes.json#/episodes/19",
+      "expected_opening": {
+        "rule_id": "SP-RATE-request-plan",
+        "request_tags": [],
+        "request_fields": [
+          "approved_setpoint_plan"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "SP-RATE-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 25,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.25,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-24fc49527b-25-1",
+            "tag": "XMEAS(7)",
+            "unit": "kPa(g)",
+            "value_or_null": 2705.7,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-24fc49527b-25-2",
+            "tag": "XMEAS(8)",
+            "unit": "%",
+            "value_or_null": 74.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-24fc49527b-25-3",
+            "tag": "XMEAS(9)",
+            "unit": "°C",
+            "value_or_null": 120.4,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 3
+            }
+          },
+          {
+            "observation_id": "obs-24fc49527b-25-4",
+            "tag": "XMEAS(12)",
+            "unit": "%",
+            "value_or_null": 49.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 4
+            }
+          },
+          {
+            "observation_id": "obs-24fc49527b-25-5",
+            "tag": "XMEAS(15)",
+            "unit": "%",
+            "value_or_null": 50.1,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 5
+            }
+          },
+          {
+            "observation_id": "obs-24fc49527b-25-6",
+            "tag": "XMEAS(17)",
+            "unit": "m3/h",
+            "value_or_null": 22.42,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 6
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "record_id": "auth-24fc49527b",
+            "record_type": "approved_setpoint_plan",
+            "issuer_role": "shift_supervisor",
+            "status": "approved",
+            "base_mode": "mode1",
+            "field": "production_rate",
+            "prior_value": 22.95,
+            "approved_value": 19.5075,
+            "unit": "m3/h",
+            "intent": "simulator_setpoint_comparison",
+            "published_at_sim_h": 1.25,
+            "effective_at_sim_h": 1.5,
+            "expires_at_sim_h": 26.25,
+            "evaluation_start_sim_h": 25.5,
+            "evaluation_end_sim_h": 26.0,
+            "closeout_requirements": {
+              "operating_bounds_clear": true,
+              "no_automatic_shutdown": true,
+              "independent_post_window_samples_min": 2,
+              "minimum_sample_separation_sim_h": 0.25,
+              "index_approved_as": "demo_only_declared_in_this_fixture",
+              "comparison_value": {
+                "tag": "XMEAS(17)",
+                "target": 19.5075,
+                "absolute_tolerance": 0.25,
+                "unit": "m3/h"
+              },
+              "quality_acceptance_record_required": true
+            },
+            "provenance": "team_authored_demo_record"
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "SP-RATE-evaluate-authorized-plan",
+          "clause_id": "SP-RATE-S2",
+          "action": "PROVIDE_SOP"
+        }
+      },
+      "counterchecks": [
+        {
+          "label": "stale revision",
+          "fact_changes": {
+            "retrieved_clause_current": false
+          },
+          "expected": "RETRIEVE_AGAIN"
+        },
+        {
+          "label": "approval is missing permanently",
+          "fact_changes": {
+            "outstanding_required_evidence_unavailable": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "approval scope mismatch",
+          "fact_changes": {
+            "plan_state": "invalid"
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "fresh gauge pressure hits normal ceiling",
+          "observed_tag": "XMEAS(7)",
+          "observed_value": 2895,
+          "fact_changes": {
+            "operating_boundary_or_stop": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "end of review without supervisor sign-off",
+          "fact_changes": {
+            "assessment_phase": "close",
+            "closeout_evidence_complete": false
+          },
+          "expected": "REQUEST_INFO"
+        }
+      ],
+      "closure_example": {
+        "required_supervisor_record": "supervisor_closeout",
+        "expected_if_record_and_postwindow_evidence_verified": "CLOSED_RECORDED",
+        "status": "criteria_example_only_no_physical_outcome_fabricated",
+        "confirm_prior_target_before_return": true,
+        "manual_revision_disposition_if_no_matched_comparison": "DEFER_UNTIL_MATCHED_DATA"
+      }
+    },
+    {
+      "case_id": "SP-MIX",
+      "public_fixture_ref": "public_episodes.json#/episodes/20",
+      "expected_opening": {
+        "rule_id": "SP-MIX-request-plan",
+        "request_tags": [],
+        "request_fields": [
+          "approved_product_grade_plan"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "SP-MIX-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 25,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.25,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-05d30da115-25-1",
+            "tag": "XMEAS(7)",
+            "unit": "kPa(g)",
+            "value_or_null": 2705.7,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-05d30da115-25-2",
+            "tag": "XMEAS(8)",
+            "unit": "%",
+            "value_or_null": 74.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-05d30da115-25-3",
+            "tag": "XMEAS(9)",
+            "unit": "°C",
+            "value_or_null": 120.4,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 3
+            }
+          },
+          {
+            "observation_id": "obs-05d30da115-25-4",
+            "tag": "XMEAS(12)",
+            "unit": "%",
+            "value_or_null": 49.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 4
+            }
+          },
+          {
+            "observation_id": "obs-05d30da115-25-5",
+            "tag": "XMEAS(15)",
+            "unit": "%",
+            "value_or_null": 50.1,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 5
+            }
+          },
+          {
+            "observation_id": "obs-05d30da115-25-6",
+            "tag": "XMEAS(17)",
+            "unit": "m3/h",
+            "value_or_null": 22.92,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 6
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "record_id": "auth-05d30da115",
+            "record_type": "approved_product_grade_plan",
+            "issuer_role": "shift_supervisor",
+            "status": "approved",
+            "base_mode": "mode1",
+            "field": "pct_g",
+            "prior_value": 53.724,
+            "approved_value": 44.0,
+            "unit": "mol %",
+            "intent": "simulator_setpoint_comparison",
+            "published_at_sim_h": 1.25,
+            "effective_at_sim_h": 1.5,
+            "expires_at_sim_h": 26.25,
+            "evaluation_start_sim_h": 25.5,
+            "evaluation_end_sim_h": 26.0,
+            "closeout_requirements": {
+              "operating_bounds_clear": true,
+              "no_automatic_shutdown": true,
+              "independent_post_window_samples_min": 2,
+              "minimum_sample_separation_sim_h": 0.25,
+              "index_approved_as": "demo_only_declared_in_this_fixture",
+              "comparison_value": {
+                "derived_metric": "gh_mass_basis_quality",
+                "target": 40,
+                "absolute_tolerance": 1,
+                "unit": "G wt% of G+H"
+              }
+            },
+            "provenance": "team_authored_demo_record"
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "SP-MIX-evaluate-authorized-plan",
+          "clause_id": "SP-MIX-S2",
+          "action": "PROVIDE_SOP"
+        }
+      },
+      "counterchecks": [
+        {
+          "label": "stale revision",
+          "fact_changes": {
+            "retrieved_clause_current": false
+          },
+          "expected": "RETRIEVE_AGAIN"
+        },
+        {
+          "label": "approval is missing permanently",
+          "fact_changes": {
+            "outstanding_required_evidence_unavailable": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "approval scope mismatch",
+          "fact_changes": {
+            "plan_state": "invalid"
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "fresh gauge pressure hits normal ceiling",
+          "observed_tag": "XMEAS(7)",
+          "observed_value": 2895,
+          "fact_changes": {
+            "operating_boundary_or_stop": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "end of review without supervisor sign-off",
+          "fact_changes": {
+            "assessment_phase": "close",
+            "closeout_evidence_complete": false
+          },
+          "expected": "REQUEST_INFO"
+        },
+        {
+          "label": "old G/H analyzer sample before the approved assessment window",
+          "fact_changes": {
+            "assessment_phase": "track",
+            "postwindow_gh_pair_valid": false,
+            "plan_state": "verified"
+          },
+          "expected": "REQUEST_INFO"
+        }
+      ],
+      "closure_example": {
+        "required_supervisor_record": "supervisor_closeout",
+        "expected_if_record_and_postwindow_evidence_verified": "CLOSED_RECORDED",
+        "status": "criteria_example_only_no_physical_outcome_fabricated",
+        "confirm_prior_target_before_return": true,
+        "manual_revision_disposition_if_no_matched_comparison": "DEFER_UNTIL_MATCHED_DATA"
+      }
+    },
+    {
+      "case_id": "SP-PRESS",
+      "public_fixture_ref": "public_episodes.json#/episodes/21",
+      "expected_opening": {
+        "rule_id": "SP-PRESS-request-plan",
+        "request_tags": [],
+        "request_fields": [
+          "approved_pressure_test"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "SP-PRESS-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 25,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.25,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-c86803da00-25-1",
+            "tag": "XMEAS(7)",
+            "unit": "kPa(g)",
+            "value_or_null": 2692.0,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-c86803da00-25-2",
+            "tag": "XMEAS(8)",
+            "unit": "%",
+            "value_or_null": 74.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-c86803da00-25-3",
+            "tag": "XMEAS(9)",
+            "unit": "°C",
+            "value_or_null": 120.4,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 3
+            }
+          },
+          {
+            "observation_id": "obs-c86803da00-25-4",
+            "tag": "XMEAS(12)",
+            "unit": "%",
+            "value_or_null": 49.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 4
+            }
+          },
+          {
+            "observation_id": "obs-c86803da00-25-5",
+            "tag": "XMEAS(15)",
+            "unit": "%",
+            "value_or_null": 50.1,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 5
+            }
+          },
+          {
+            "observation_id": "obs-c86803da00-25-6",
+            "tag": "XMEAS(10)",
+            "unit": "kscmh",
+            "value_or_null": 0.393,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 6
+            }
+          },
+          {
+            "observation_id": "obs-c86803da00-25-7",
+            "tag": "XMEAS(17)",
+            "unit": "m3/h",
+            "value_or_null": 22.88,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 7
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "record_id": "auth-c86803da00",
+            "record_type": "approved_pressure_test",
+            "issuer_role": "shift_supervisor",
+            "status": "approved",
+            "base_mode": "mode1",
+            "field": "reactor_pressure",
+            "prior_value": 2705.0,
+            "approved_value": 2645.0,
+            "unit": "kPa(g)",
+            "intent": "simulator_setpoint_comparison",
+            "published_at_sim_h": 1.25,
+            "effective_at_sim_h": 1.5,
+            "expires_at_sim_h": 26.25,
+            "evaluation_start_sim_h": 25.5,
+            "evaluation_end_sim_h": 26.0,
+            "closeout_requirements": {
+              "operating_bounds_clear": true,
+              "no_automatic_shutdown": true,
+              "independent_post_window_samples_min": 2,
+              "minimum_sample_separation_sim_h": 0.25,
+              "index_approved_as": "demo_only_declared_in_this_fixture",
+              "comparison_value": {
+                "tag": "XMEAS(7)",
+                "target": 2645.0,
+                "absolute_tolerance": 10,
+                "unit": "kPa(g)"
+              }
+            },
+            "provenance": "team_authored_demo_record"
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "SP-PRESS-evaluate-authorized-plan",
+          "clause_id": "SP-PRESS-S2",
+          "action": "PROVIDE_SOP"
+        }
+      },
+      "counterchecks": [
+        {
+          "label": "stale revision",
+          "fact_changes": {
+            "retrieved_clause_current": false
+          },
+          "expected": "RETRIEVE_AGAIN"
+        },
+        {
+          "label": "approval is missing permanently",
+          "fact_changes": {
+            "outstanding_required_evidence_unavailable": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "approval scope mismatch",
+          "fact_changes": {
+            "plan_state": "invalid"
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "fresh gauge pressure hits normal ceiling",
+          "observed_tag": "XMEAS(7)",
+          "observed_value": 2895,
+          "fact_changes": {
+            "operating_boundary_or_stop": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "end of review without supervisor sign-off",
+          "fact_changes": {
+            "assessment_phase": "close",
+            "closeout_evidence_complete": false
+          },
+          "expected": "REQUEST_INFO"
+        }
+      ],
+      "closure_example": {
+        "required_supervisor_record": "supervisor_closeout",
+        "expected_if_record_and_postwindow_evidence_verified": "CLOSED_RECORDED",
+        "status": "criteria_example_only_no_physical_outcome_fabricated",
+        "confirm_prior_target_before_return": true,
+        "manual_revision_disposition_if_no_matched_comparison": "DEFER_UNTIL_MATCHED_DATA"
+      }
+    },
+    {
+      "case_id": "SP-MODE",
+      "public_fixture_ref": "public_episodes.json#/episodes/22",
+      "expected_opening": {
+        "rule_id": "SP-MODE-request-plan",
+        "request_tags": [],
+        "request_fields": [
+          "approved_mode_scenario_request"
+        ],
+        "action": "REQUEST_INFO",
+        "clause_id": "SP-MODE-S1"
+      },
+      "lookup_batch": {
+        "new_cutoff_key": {
+          "tick": 25,
+          "event_seq": 50
+        },
+        "t_decision_cutoff_sim_h": 1.25,
+        "release_when": "only_after_matching_information_request",
+        "observation_rows": [
+          {
+            "observation_id": "obs-0f409ecf29-25-1",
+            "tag": "XMEAS(7)",
+            "unit": "kPa(g)",
+            "value_or_null": 2705.7,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 1
+            }
+          },
+          {
+            "observation_id": "obs-0f409ecf29-25-2",
+            "tag": "XMEAS(8)",
+            "unit": "%",
+            "value_or_null": 74.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 2
+            }
+          },
+          {
+            "observation_id": "obs-0f409ecf29-25-3",
+            "tag": "XMEAS(9)",
+            "unit": "°C",
+            "value_or_null": 120.4,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 3
+            }
+          },
+          {
+            "observation_id": "obs-0f409ecf29-25-4",
+            "tag": "XMEAS(12)",
+            "unit": "%",
+            "value_or_null": 49.9,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 4
+            }
+          },
+          {
+            "observation_id": "obs-0f409ecf29-25-5",
+            "tag": "XMEAS(15)",
+            "unit": "%",
+            "value_or_null": 50.1,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 5
+            }
+          },
+          {
+            "observation_id": "obs-0f409ecf29-25-6",
+            "tag": "XMEAS(17)",
+            "unit": "m3/h",
+            "value_or_null": 22.95,
+            "quality": "GOOD",
+            "sampled_at_sim_h_or_null": 1.25,
+            "available_at_sim_h": 1.25,
+            "available_key": {
+              "tick": 25,
+              "event_seq": 6
+            }
+          }
+        ],
+        "operator_records": [
+          {
+            "record_id": "auth-0f409ecf29",
+            "record_type": "approved_mode_scenario_request",
+            "issuer_role": "shift_supervisor",
+            "status": "approved",
+            "base_mode": "mode1",
+            "field": "scenario_mode_preset",
+            "prior_value": "mode1",
+            "approved_value": "mode3",
+            "unit": "mode_key",
+            "intent": "independent_scenario",
+            "published_at_sim_h": 1.25,
+            "effective_at_sim_h": 1.5,
+            "expires_at_sim_h": 26.25,
+            "evaluation_start_sim_h": 25.5,
+            "evaluation_end_sim_h": 26.0,
+            "closeout_requirements": {
+              "operating_bounds_clear": true,
+              "no_automatic_shutdown": true,
+              "independent_post_window_samples_min": null,
+              "minimum_sample_separation_sim_h": null,
+              "index_approved_as": "demo_only_declared_in_this_fixture",
+              "required_independent_run_metadata": [
+                "new_run_id",
+                "scenario_mode",
+                "initial_state_id",
+                "controller_rev"
+              ]
+            },
+            "provenance": "team_authored_demo_record"
+          }
+        ],
+        "expected_after_publication": {
+          "rule_id": "SP-MODE-evaluate-authorized-plan",
+          "clause_id": "SP-MODE-S2",
+          "action": "PROVIDE_SOP"
+        }
+      },
+      "counterchecks": [
+        {
+          "label": "stale revision",
+          "fact_changes": {
+            "retrieved_clause_current": false
+          },
+          "expected": "RETRIEVE_AGAIN"
+        },
+        {
+          "label": "approval is missing permanently",
+          "fact_changes": {
+            "outstanding_required_evidence_unavailable": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "approval scope mismatch",
+          "fact_changes": {
+            "plan_state": "invalid"
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "fresh gauge pressure hits normal ceiling",
+          "observed_tag": "XMEAS(7)",
+          "observed_value": 2895,
+          "fact_changes": {
+            "operating_boundary_or_stop": true
+          },
+          "expected": "ESCALATE"
+        },
+        {
+          "label": "end of review without supervisor sign-off",
+          "fact_changes": {
+            "assessment_phase": "close",
+            "closeout_evidence_complete": false
+          },
+          "expected": "REQUEST_INFO"
+        },
+        {
+          "label": "legacy request labels Mode-3 initialization as a continuous transition",
+          "fact_changes": {
+            "continuous_transition_requested": true,
+            "plan_state": "verified"
+          },
+          "expected": "ESCALATE"
+        }
+      ],
+      "closure_example": {
+        "required_supervisor_record": "supervisor_closeout",
+        "expected_if_record_and_postwindow_evidence_verified": "CLOSED_RECORDED",
+        "status": "criteria_example_only_no_physical_outcome_fabricated",
+        "confirm_prior_target_before_return": false,
+        "manual_revision_disposition_if_no_matched_comparison": "DEFER_UNTIL_MATCHED_DATA"
+      }
+    }
+  ]
+}

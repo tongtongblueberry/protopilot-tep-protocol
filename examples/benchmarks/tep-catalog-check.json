@@ -1,0 +1,525 @@
+{
+  "schema_version": "1",
+  "input_status": "frozen",
+  "status": "PASS",
+  "scope": "V3 catalog, precomputed BM25 corpus, public-episode wiring, and existing registration gate check. Source-content acceptance and publication approval are separate.",
+  "checked_at_utc": "2026-11-19T05:26:39.432012+00:00",
+  "protocol_revision": "tep-rag-demo.1",
+  "checker": {
+    "path": "simulator/protocols/check_catalog.py",
+    "sha256": "757fac522c889bf3af325a544403c0842d83e70b88be5da73d068186201c6f62"
+  },
+  "reproduce": "python simulator/protocols/check_catalog.py --rag-root rag --catalog simulator/protocols/tep_protocol.json --corpus simulator/protocols/rag_corpus.json --expected-kind sop --input-status frozen --output artifacts/tep-catalog-recheck",
+  "inputs": [
+    {
+      "path": "simulator/protocols/tep_protocol.json",
+      "sha256": "258138f1cf096f282cbdc4f2bb49f24d8a34b854aebe2bf7eb723b2669a2fc9a",
+      "bytes": 568255
+    },
+    {
+      "path": "simulator/protocols/rag_corpus.json",
+      "sha256": "eb66908b058adcd1037ccf14907aca9d5e42ef795a7906475a227670710cca91",
+      "bytes": 83970
+    },
+    {
+      "path": "simulator/protocols/public_episodes.json",
+      "sha256": "1d0434c86dacbc35bcbdbe998e922529d760333221d9a4ca203d70d896aa1ec5",
+      "bytes": 140689
+    },
+    {
+      "path": "simulator/protocols/public_episode.json",
+      "sha256": "97817d4ffe519975fcd425437776cf58d99802fb8707de06bc3a9f7ee6584f8c",
+      "bytes": 9930
+    },
+    {
+      "path": "simulator/protocols/eval_cases.json",
+      "sha256": "6ca40b1abc2249347aa6951819ef9d285ea7838af26d463324aee0aedad4ca5e",
+      "bytes": 94913
+    },
+    {
+      "path": "simulator/protocols/verify_protocol.py",
+      "sha256": "d012b53a0e454e6260ada5170e13fde9cd77097c4a088e4da9ea2976538e2c7f",
+      "bytes": 39409
+    }
+  ],
+  "rag_input_sha256": {
+    "rag/agent.py": "76c61646fc7f68ea78f24b923f13b00729b3addea6190073cc4cb55bfe4fcb48",
+    "rag/app.py": "19ffdbef7680d8d394958a93ee17eda4cf022086c5f1f0ae5f8c7d7ef4bccbed",
+    "rag/retrieval.py": "de88f967ba12b845b1e35c8ca4a01ca733284adb896b4f339d074ad8e88ae95e",
+    "rag/data/corpus.json": "525bbef39993b4ff097b3293cc536aff036122ace3d43e64f6d1b09f43452a2a",
+    "rag/data/sources/rc01.json": "eadda12fb9b8403c526a91dc743f7e7783c63b220018f371bd72dfdf19c3e59a"
+  },
+  "hashing": {
+    "file_sha256": "SHA-256 of exact file bytes",
+    "canonical_sha256": "SHA-256 of UTF-8 JSON with ensure_ascii=false, sort_keys=true, separators=(comma,colon), allow_nan=false",
+    "query_sha256": "SHA-256 of the exact query UTF-8 bytes",
+    "query_set_sha256": "Canonical SHA-256 of the ordered list of objects containing query and filters, in catalog case order"
+  },
+  "corpus_canonical_sha256": "c2369ca79ea60cfdad8179bf321c4c7acd6b7e3db5b85186bb98ebcdcb9d37b9",
+  "query_set_sha256": "f7cbe5f6139d7aaaf23bb7712a3811d003aee0c8691f0d8418c675d3e4a53f4a",
+  "query_policy": {
+    "id": "public_observation_v1",
+    "search_mode": "bm25",
+    "backend": "qdrant_local_memory",
+    "device": "cpu",
+    "limit": 5,
+    "candidate_limit": 89,
+    "inputs": [
+      "Public snapshot mode and decision cutoff",
+      "Latest readings and active alarms published by the cutoff"
+    ],
+    "filters": [
+      "process_mode",
+      "equipment when exactly one equipment is present among active alarms"
+    ],
+    "excluded": [
+      "Case and card identifiers",
+      "Case titles",
+      "Diagnostic rules",
+      "Evaluation labels",
+      "Future observations"
+    ],
+    "evaluation": "Expected active-card clauses are used only after retrieval to score coverage; they do not enter the query.",
+    "relevance_acceptance_threshold": null
+  },
+  "checks": {
+    "integration": {
+      "passed": 667,
+      "total": 667
+    },
+    "candidate_integrity": {
+      "passed": 102,
+      "total": 102
+    },
+    "canonical_clause_pointers": 89,
+    "all_six_candidate_files_unchanged": true,
+    "all_public_episodes_referenced_once": true
+  },
+  "coverage": {
+    "case_count": 23,
+    "corpus_rows": 89,
+    "exact_text_rows_reachable": 89,
+    "active_card_in_top5": 19,
+    "missed_cases": [
+      "FD-A-FLOW",
+      "FD-AC-FLOW",
+      "FD-D-TEMP",
+      "SP-PRESS"
+    ]
+  },
+  "registration": {
+    "incoming_kind": "sop",
+    "registered_kind": "research_sop",
+    "new_cards_registered": 0,
+    "tested_incidents": 23,
+    "actions": {
+      "ESCALATE": 23
+    },
+    "guidance_count": 0,
+    "citation_count": 0,
+    "actual_zoro_calls": 0,
+    "hidden_label_and_future_observation_invariance": "PASS"
+  },
+  "limits": [
+    "The 23 public queries are authored integration probes, not a held-out retrieval benchmark.",
+    "Exact-text probes establish index reachability, not semantic retrieval quality.",
+    "All new clauses remain unregistered and are rejected by the existing decision executor. Expanded protocol decisions are not executed.",
+    "No actual Zoro inference or industrial operating validation was performed.",
+    "public_episode.json, eval_cases.json, and verify_protocol.py were checked for byte integrity only in this lane.",
+    "The existing retry filter uses research_sop; integrating sop rows into an expanded registry requires an explicit compatibility decision."
+  ],
+  "cases": [
+    {
+      "case_id": "FD-A-FLOW",
+      "public_fixture_ref": "public_episodes.json#/episodes/0",
+      "query_sha256": "2957af43484f07e9af1856f0046beacdffaf7b414b742e22f9d31bab49d93704",
+      "filters": {
+        "process_mode": "FD_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "FD-MIXED-COMPOSITION-S2",
+        "FD-AC-TEMP-S1",
+        "FD-MIXED-COMPOSITION-S1",
+        "FD-A-C-RATIO-S2",
+        "FD-B-TREND-S3"
+      ],
+      "active_card_in_top5": false
+    },
+    {
+      "case_id": "FD-AC-FLOW",
+      "public_fixture_ref": "public_episodes.json#/episodes/1",
+      "query_sha256": "255958e8d31fa38dd5cd3de2058a522cf3c1a7838903c367186faca37203616d",
+      "filters": {
+        "process_mode": "FD_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "FD-MIXED-COMPOSITION-S2",
+        "FD-AC-TEMP-S1",
+        "FD-MIXED-COMPOSITION-S1",
+        "FD-A-C-RATIO-S2",
+        "FD-B-TREND-S3"
+      ],
+      "active_card_in_top5": false
+    },
+    {
+      "case_id": "FD-A-C-RATIO",
+      "public_fixture_ref": "public_episodes.json#/episodes/2",
+      "query_sha256": "adf970bd82cea8a8f61dfd83be5eba6c10edffdcd23741545aada85928409934",
+      "filters": {
+        "process_mode": "FD_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "FD-MIXED-COMPOSITION-S2",
+        "FD-AC-TEMP-S1",
+        "FD-MIXED-COMPOSITION-S1",
+        "FD-A-C-RATIO-S2",
+        "FD-B-TREND-S3"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "FD-B-TREND",
+      "public_fixture_ref": "public_episodes.json#/episodes/3",
+      "query_sha256": "94e0cf6f4384ef3a8c23f7d48f414461fa7a7d74c11c1ea874921584d48af778",
+      "filters": {
+        "process_mode": "FD_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "FD-MIXED-COMPOSITION-S2",
+        "FD-AC-TEMP-S1",
+        "FD-MIXED-COMPOSITION-S1",
+        "FD-A-C-RATIO-S2",
+        "FD-B-TREND-S3"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "FD-MIXED-COMPOSITION",
+      "public_fixture_ref": "public_episodes.json#/episodes/4",
+      "query_sha256": "7998585c05dacdfcdff156833dc1e02c32b63a2fbb93e068a925bc60a9bae9d3",
+      "filters": {
+        "process_mode": "FD_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "FD-MIXED-COMPOSITION-S2",
+        "FD-AC-TEMP-S1",
+        "FD-MIXED-COMPOSITION-S1",
+        "FD-A-C-RATIO-S2",
+        "FD-B-TREND-S3"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "FD-D-TEMP",
+      "public_fixture_ref": "public_episodes.json#/episodes/5",
+      "query_sha256": "217080713280a9f16eff6ebf872dc9f42080fb4abd71057a0507b9fae3fc793b",
+      "filters": {
+        "process_mode": "FD_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "FD-AC-TEMP-S1",
+        "FD-MIXED-COMPOSITION-S1",
+        "FD-A-C-RATIO-S2",
+        "FD-MIXED-COMPOSITION-S2",
+        "FD-A-C-RATIO-S1"
+      ],
+      "active_card_in_top5": false
+    },
+    {
+      "case_id": "FD-AC-TEMP",
+      "public_fixture_ref": "public_episodes.json#/episodes/6",
+      "query_sha256": "720ba4a85a92640cbaf9d56dfd7cf27d24b837b2ca351066341b732c7f304495",
+      "filters": {
+        "process_mode": "FD_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "FD-AC-TEMP-S1",
+        "FD-MIXED-COMPOSITION-S1",
+        "FD-A-C-RATIO-S2",
+        "FD-MIXED-COMPOSITION-S2",
+        "FD-A-C-RATIO-S1"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "HX-CASE-R01",
+      "public_fixture_ref": "public_episodes.json#/episodes/7",
+      "query_sha256": "6688a21e41890d4fbe705e084be8e221aa6c1ba8c0f86d800c88416c081907cb",
+      "filters": {
+        "process_mode": "HX_FIX_M1",
+        "equipment": "TEP_REACTOR"
+      },
+      "top5_clause_ids": [
+        "HX-CARD-R01-S01",
+        "HX-CARD-R02-S01",
+        "HX-CARD-R01-S04",
+        "HX-CARD-R02-S04",
+        "HX-CARD-R01-S03"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "HX-CASE-R02",
+      "public_fixture_ref": "public_episodes.json#/episodes/8",
+      "query_sha256": "f66b2052d8ac17c4aeac49c2e17aca6e02a1ab9547703dc735621a0ba0bd61e1",
+      "filters": {
+        "process_mode": "HX_FIX_M1",
+        "equipment": "TEP_REACTOR"
+      },
+      "top5_clause_ids": [
+        "HX-CARD-R01-S01",
+        "HX-CARD-R02-S01",
+        "HX-CARD-R01-S04",
+        "HX-CARD-R02-S04",
+        "HX-CARD-R01-S03"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "HX-CASE-C01",
+      "public_fixture_ref": "public_episodes.json#/episodes/9",
+      "query_sha256": "fd6304ed8f3f47a9fd71f5fbcaca49fec5551a354abb573ecb49020e816a5271",
+      "filters": {
+        "process_mode": "HX_FIX_M1",
+        "equipment": "TEP_SEPARATOR_CONDENSER"
+      },
+      "top5_clause_ids": [
+        "HX-CARD-C01-S01",
+        "HX-CARD-C02-S01",
+        "HX-CARD-C01-S04",
+        "HX-CARD-C02-S04",
+        "HX-CARD-C01-S03"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "HX-CASE-C02",
+      "public_fixture_ref": "public_episodes.json#/episodes/10",
+      "query_sha256": "2de9fdbf43c870d2a3d85df0e8a18c767f2abd32d1f49e972bafc8adf65d99f1",
+      "filters": {
+        "process_mode": "HX_FIX_M1",
+        "equipment": "TEP_SEPARATOR_CONDENSER"
+      },
+      "top5_clause_ids": [
+        "HX-CARD-C01-S01",
+        "HX-CARD-C02-S01",
+        "HX-CARD-C01-S04",
+        "HX-CARD-C02-S04",
+        "HX-CARD-C01-S03"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-RQ01",
+      "public_fixture_ref": "public_episodes.json#/episodes/11",
+      "query_sha256": "a27bca1e1230b2637197baa11b3831f0ae2f25d263a224c77db9ff81c021dd49",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_REACTOR"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-RQ01-S02",
+        "EX-CARD-RH01-S01",
+        "EX-CARD-RQ01-S01",
+        "EX-CARD-RQ01-S04",
+        "EX-CARD-RH01-S04"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-SH01",
+      "public_fixture_ref": "public_episodes.json#/episodes/12",
+      "query_sha256": "197fd445b4be3cfbb219f5e8ee1bdc0d0e22c857e44cca5e63265c8b0a0511b4",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_STRIPPER"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-IN01-S02",
+        "EX-CARD-SH01-S02",
+        "EX-CARD-IN01-S01",
+        "EX-CARD-SH01-S01",
+        "EX-CARD-SH01-S04"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-RH01",
+      "public_fixture_ref": "public_episodes.json#/episodes/13",
+      "query_sha256": "a73074b1935a384f1f94bdcb54e2d5cd028c875cb83ce0176d42f1c828a555e9",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_REACTOR"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-RQ01-S02",
+        "EX-CARD-RH01-S01",
+        "EX-CARD-RQ01-S01",
+        "EX-CARD-RH01-S04",
+        "EX-CARD-RH01-S02"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-CH01",
+      "public_fixture_ref": "public_episodes.json#/episodes/14",
+      "query_sha256": "49d85f58570ab5f565c275b27e82c40a710619efac5d3b59551442ea43d5cf78",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_SEPARATOR"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-CH01-S01",
+        "EX-CARD-CH01-S04",
+        "EX-CARD-CH01-S03",
+        "EX-CARD-CH01-S02"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-AR01",
+      "public_fixture_ref": "public_episodes.json#/episodes/15",
+      "query_sha256": "a0b9d18fc3016961ec2f7555c67465d4ad51f031f689d018c3f87f35abbdedae",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_SEPARATOR_STRIPPER"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-AR01-S04",
+        "EX-CARD-AR01-S01",
+        "EX-CARD-AR01-S03",
+        "EX-CARD-AR01-S02"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-UF01",
+      "public_fixture_ref": "public_episodes.json#/episodes/16",
+      "query_sha256": "0f1635afbf1bad227e822ae4f69a22ed50094d27e03aa412d589836fe03c0e5d",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_REACTOR_SEPARATOR"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-UF01-S04",
+        "EX-CARD-UF01-S01",
+        "EX-CARD-UF01-S03",
+        "EX-CARD-UF01-S02"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-FC01",
+      "public_fixture_ref": "public_episodes.json#/episodes/17",
+      "query_sha256": "e17004258a878529f0ab984b47cb897c53f4c92b9675b7a9fe2bdcdd5398fae4",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_FEED"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-FC01-S01",
+        "EX-CARD-FC01-S04",
+        "EX-CARD-FC01-S02",
+        "EX-CARD-FC01-S03"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "EX-CASE-IN01",
+      "public_fixture_ref": "public_episodes.json#/episodes/18",
+      "query_sha256": "955e8dedeb74f5e0280e67bb40882cd4e6daaa9ad98225bbbf00abe9d7401153",
+      "filters": {
+        "process_mode": "EX_FIX_M1",
+        "equipment": "TEP_STRIPPER"
+      },
+      "top5_clause_ids": [
+        "EX-CARD-IN01-S02",
+        "EX-CARD-IN01-S03",
+        "EX-CARD-IN01-S01",
+        "EX-CARD-SH01-S01",
+        "EX-CARD-IN01-S04"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "SP-RATE",
+      "public_fixture_ref": "public_episodes.json#/episodes/19",
+      "query_sha256": "04e9a3ff77f07e49878a4e2676e654d0a310e9db01d48f27be400e6e17c9dcda",
+      "filters": {
+        "process_mode": "SP_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "SP-RATE-S1",
+        "SP-MIX-S3",
+        "SP-MIX-S1",
+        "SP-MODE-S1",
+        "SP-MIX-S4"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "SP-MIX",
+      "public_fixture_ref": "public_episodes.json#/episodes/20",
+      "query_sha256": "f1867b20bbf5b192e6335be8f663a3191b6dc294aeb41609d0cfa775754eb4b4",
+      "filters": {
+        "process_mode": "SP_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "SP-RATE-S1",
+        "SP-MIX-S3",
+        "SP-MIX-S1",
+        "SP-MODE-S1",
+        "SP-MIX-S4"
+      ],
+      "active_card_in_top5": true
+    },
+    {
+      "case_id": "SP-PRESS",
+      "public_fixture_ref": "public_episodes.json#/episodes/21",
+      "query_sha256": "eeaed08b3d76e2d6e0dfd9c5244bb8872ff1d68c53fe4b4d1210268c4496cb76",
+      "filters": {
+        "process_mode": "SP_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "SP-RATE-S1",
+        "SP-MIX-S3",
+        "SP-MIX-S1",
+        "SP-MODE-S1",
+        "SP-MIX-S4"
+      ],
+      "active_card_in_top5": false
+    },
+    {
+      "case_id": "SP-MODE",
+      "public_fixture_ref": "public_episodes.json#/episodes/22",
+      "query_sha256": "260cf09d40cd3078586e8cac33de81d7316e48d92444de91595e80705afb9ed8",
+      "filters": {
+        "process_mode": "SP_MODE1_TRAINING"
+      },
+      "top5_clause_ids": [
+        "SP-RATE-S1",
+        "SP-MIX-S3",
+        "SP-MIX-S1",
+        "SP-MODE-S1",
+        "SP-MIX-S4"
+      ],
+      "active_card_in_top5": true
+    }
+  ],
+  "candidate_revision": "v3",
+  "release_status": "BRIDGE_CHECK_PASS",
+  "revision_change": {
+    "file": "simulator/protocols/tep_protocol.json",
+    "previous_sha256": "d3e0b2fc29174ccd2051688cf663e18c49cad787814f1e03d913311c8cafa487",
+    "sha256": "258138f1cf096f282cbdc4f2bb49f24d8a34b854aebe2bf7eb723b2669a2fc9a",
+    "change": "Only FD-A-C-RATIO, its comparison, and one added source record changed. The alternative is advisory engineering review with no simulation mapping or authorized setpoint change. Physical comparison is on hold until an intervention is defined.",
+    "unchanged_card_payloads": 23,
+    "unchanged_other_cases": 22,
+    "unchanged_existing_sources": 66,
+    "added_source_ids": [
+      "FD-ST-FEED-CONTROL"
+    ],
+    "other_candidate_files_byte_identical_to_v2": 5
+  },
+  "source_review_status": "OUT_OF_SCOPE"
+}

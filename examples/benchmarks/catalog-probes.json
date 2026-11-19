@@ -1,0 +1,310 @@
+[
+  {
+    "case_id": "FD-A-FLOW",
+    "query": "Process mode FD_MODE1_TRAINING. Public observations at simulation hour 1.2: A_FEED_FLOW_SETPOINT = 0 kscmh (GOOD); XMEAS(1) = 0.012 kscmh (GOOD); XMEAS(4) = 9.58 kscmh (GOOD); XMEAS(7) = 2725 kPa(g) (GOOD); XMEAS(9) = 120.7 °C (GOOD); XMV(3) = 23.9 % (GOOD); XMV(4) = 63.2 % (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "FD_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "FD-A-FLOW-S1",
+      "FD-A-FLOW-S2",
+      "FD-A-FLOW-S3"
+    ]
+  },
+  {
+    "case_id": "FD-AC-FLOW",
+    "query": "Process mode FD_MODE1_TRAINING. Public observations at simulation hour 1.2: AC_FEED_FLOW_SETPOINT = 9.3 kscmh (GOOD); XMEAS(1) = 0.259 kscmh (GOOD); XMEAS(4) = 7.8 kscmh (GOOD); XMEAS(7) = 2709 kPa(g) (GOOD); XMEAS(9) = 120.6 °C (GOOD); XMV(3) = 24.5 % (GOOD); XMV(4) = 84.4 % (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "FD_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "FD-AC-FLOW-S1",
+      "FD-AC-FLOW-S2",
+      "FD-AC-FLOW-S3"
+    ]
+  },
+  {
+    "case_id": "FD-A-C-RATIO",
+    "query": "Process mode FD_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(23) = 30.5 mol % (GOOD); XMEAS(24) = 8.95 mol % (GOOD); XMEAS(25) = 28 mol % (GOOD); XMEAS(4) = 9.4 kscmh (GOOD); XMEAS(7) = 2716 kPa(g) (GOOD); XMEAS(9) = 120.6 °C (GOOD); XMEASADD(27) = 48.5 mol % (GOOD); XMEASADD(28) = 0.5 mol % (GOOD); XMEASADD(29) = 51 mol % (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "FD_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "FD-A-C-RATIO-S1",
+      "FD-A-C-RATIO-S2",
+      "FD-A-C-RATIO-S3"
+    ]
+  },
+  {
+    "case_id": "FD-B-TREND",
+    "query": "Process mode FD_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(10) = 0.39 kscmh (GOOD); XMEAS(23) = 31.96 mol % (GOOD); XMEAS(24) = 10.2 mol % (GOOD); XMEAS(25) = 26.2 mol % (GOOD); XMEAS(30) = 15.4 mol % (GOOD); XMEAS(7) = 2734 kPa(g) (GOOD); XMEAS(9) = 120.7 °C (GOOD); XMEASADD(27) = 48.5 mol % (GOOD); XMEASADD(28) = 0.5 mol % (GOOD); XMEASADD(29) = 51 mol % (GOOD); XMV(6) = 51.1 % (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "FD_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "FD-B-TREND-S1",
+      "FD-B-TREND-S2",
+      "FD-B-TREND-S3"
+    ]
+  },
+  {
+    "case_id": "FD-MIXED-COMPOSITION",
+    "query": "Process mode FD_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(23) = 30.1 mol % (GOOD); XMEAS(24) = 10.3 mol % (GOOD); XMEAS(25) = 27.2 mol % (GOOD); XMEAS(30) = 15.1 mol % (GOOD); XMEAS(4) = 9.5 kscmh (GOOD); XMEAS(7) = 2722 kPa(g) (GOOD); XMEAS(9) = 120.9 °C (GOOD); XMEASADD(27) = 48.5 mol % (GOOD); XMEASADD(28) = 0.5 mol % (GOOD); XMEASADD(29) = 51 mol % (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "FD_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "FD-MIXED-COMPOSITION-S1",
+      "FD-MIXED-COMPOSITION-S2",
+      "FD-MIXED-COMPOSITION-S3"
+    ]
+  },
+  {
+    "case_id": "FD-D-TEMP",
+    "query": "Process mode FD_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(2) = 3669 kg/h (GOOD); XMEAS(21) = 95 °C (GOOD); XMEAS(7) = 2709 kPa(g) (GOOD); XMEAS(9) = 121.8 °C (GOOD); XMEASADD(2) = 45.1 °C (GOOD); XMV(1) = 63.2 % (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "FD_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "FD-D-TEMP-S1",
+      "FD-D-TEMP-S2",
+      "FD-D-TEMP-S3"
+    ]
+  },
+  {
+    "case_id": "FD-AC-TEMP",
+    "query": "Process mode FD_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(23) = 32.3 mol % (GOOD); XMEAS(24) = 8.95 mol % (GOOD); XMEAS(25) = 26.4 mol % (GOOD); XMEAS(4) = 9.34 kscmh (GOOD); XMEAS(7) = 2718 kPa(g) (GOOD); XMEAS(9) = 121.1 °C (GOOD); XMEASADD(27) = 48.5 mol % (GOOD); XMEASADD(28) = 0.5 mol % (GOOD); XMEASADD(29) = 51 mol % (GOOD); XMEASADD(4) = 45.2 °C (GOOD); XMV(4) = 61.4 % (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "FD_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "FD-AC-TEMP-S1",
+      "FD-AC-TEMP-S2",
+      "FD-AC-TEMP-S3"
+    ]
+  },
+  {
+    "case_id": "HX-CASE-R01",
+    "query": "Process mode HX_FIX_M1. Public observations at simulation hour 2.0: XMEAS(21) = 95.9 °C (GOOD); XMEAS(7) = 2758 kPa(g) (GOOD); XMEAS(8) = 74 % (GOOD); XMEAS(9) = 126.1 °C (GOOD). Active alarms: HX-AL-R-T on TEP_REACTOR, HX-AL-R-P on TEP_REACTOR. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "HX_FIX_M1",
+      "equipment": "TEP_REACTOR"
+    },
+    "expected_active_card_clauses": [
+      "HX-CARD-R01-S01",
+      "HX-CARD-R01-S02",
+      "HX-CARD-R01-S03",
+      "HX-CARD-R01-S04"
+    ]
+  },
+  {
+    "case_id": "HX-CASE-R02",
+    "query": "Process mode HX_FIX_M1. Public observations at simulation hour 2.0: XMEAS(21) = 97.0 °C (GOOD); XMEAS(7) = 2741 kPa(g) (GOOD); XMEAS(8) = 71 % (GOOD); XMEAS(9) = 126.5 °C (GOOD); XMEASADD(6) = 96.1 m³/h (GOOD); XMV(10) = 57.0 % (GOOD). Active alarms: HX-AL-R-T on TEP_REACTOR. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "HX_FIX_M1",
+      "equipment": "TEP_REACTOR"
+    },
+    "expected_active_card_clauses": [
+      "HX-CARD-R02-S01",
+      "HX-CARD-R02-S02",
+      "HX-CARD-R02-S03",
+      "HX-CARD-R02-S04"
+    ]
+  },
+  {
+    "case_id": "HX-CASE-C01",
+    "query": "Process mode HX_FIX_M1. Public observations at simulation hour 2.0: XMEAS(11) = 86.0 °C (GOOD); XMEAS(12) = 58.0 % (GOOD); XMEAS(13) = 2666 kPa(g) (GOOD); XMEAS(22) = 62.2 °C (GOOD). Active alarms: HX-AL-C-TREND on TEP_SEPARATOR_CONDENSER. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "HX_FIX_M1",
+      "equipment": "TEP_SEPARATOR_CONDENSER"
+    },
+    "expected_active_card_clauses": [
+      "HX-CARD-C01-S01",
+      "HX-CARD-C01-S02",
+      "HX-CARD-C01-S03",
+      "HX-CARD-C01-S04"
+    ]
+  },
+  {
+    "case_id": "HX-CASE-C02",
+    "query": "Process mode HX_FIX_M1. Public observations at simulation hour 2.0: XMEAS(11) = 87.2 °C (GOOD); XMEAS(12) = 63.1 % (GOOD); XMEAS(13) = 2680 kPa(g) (GOOD); XMEAS(22) = 65.4 °C (GOOD); XMEASADD(8) = 106.1 m³/h (GOOD); XMV(11) = 56.0 % (GOOD). Active alarms: HX-AL-C-TREND on TEP_SEPARATOR_CONDENSER. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "HX_FIX_M1",
+      "equipment": "TEP_SEPARATOR_CONDENSER"
+    },
+    "expected_active_card_clauses": [
+      "HX-CARD-C02-S01",
+      "HX-CARD-C02-S02",
+      "HX-CARD-C02-S03",
+      "HX-CARD-C02-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-RQ01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.5: XMEAS(17) = 22.87 m³/h (GOOD); XMEAS(23) = 32 mol % (GOOD); XMEAS(25) = 26.5 mol % (GOOD); XMEAS(40) = 51.8 mol % (GOOD); XMEAS(41) = 45.4 mol % (GOOD); XMEAS(7) = 2708 kPa(g) (GOOD); XMEAS(9) = 121.2 °C (GOOD). Active alarms: EX-AL-PRODUCT-ANALYSIS on TEP_REACTOR. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_REACTOR"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-RQ01-S01",
+      "EX-CARD-RQ01-S02",
+      "EX-CARD-RQ01-S03",
+      "EX-CARD-RQ01-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-SH01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.5: XMEAS(15) = 48.9 % (GOOD); XMEAS(17) = 22.6 m³/h (GOOD); XMEAS(18) = 63.8 °C (GOOD); XMEAS(19) = 181.7 kg/h (GOOD). Active alarms: EX-AL-STRIPPER-STEAM on TEP_STRIPPER. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_STRIPPER"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-SH01-S01",
+      "EX-CARD-SH01-S02",
+      "EX-CARD-SH01-S03",
+      "EX-CARD-SH01-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-RH01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.5: XMEAS(21) = 91.6 °C (GOOD); XMEAS(7) = 2715 kPa(g) (GOOD); XMEAS(8) = 75.2 % (GOOD); XMEAS(9) = 124.1 °C (GOOD); XMEASADD(5) = 35 °C (GOOD); XMEASADD(6) = 94 m³/h (GOOD); XMV(10) = 42 % (GOOD); XMV(12) = 50 % (GOOD). Active alarms: EX-AL-REACTOR-THERMAL on TEP_REACTOR. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_REACTOR"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-RH01-S01",
+      "EX-CARD-RH01-S02",
+      "EX-CARD-RH01-S03",
+      "EX-CARD-RH01-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-CH01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.5: XMEAS(11) = 82.6 °C (GOOD); XMEAS(12) = 51.3 % (GOOD); XMEAS(13) = 2653 kPa(g) (GOOD); XMEAS(22) = 74.9 °C (GOOD); XMEAS(5) = 27 kscmh (GOOD); XMEASADD(7) = 34.8 °C (GOOD); XMEASADD(8) = 49.2 m³/h (GOOD). Active alarms: EX-AL-SEPARATOR-THERMAL on TEP_SEPARATOR. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_SEPARATOR"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-CH01-S01",
+      "EX-CARD-CH01-S02",
+      "EX-CARD-CH01-S03",
+      "EX-CARD-CH01-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-AR01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.5: XMEAS(12) = 53.3 % (GOOD); XMEAS(14) = 25.2 m³/h (GOOD); XMEAS(15) = 47.8 % (GOOD); XMEAS(17) = 23 m³/h (GOOD); XMV(7) = 38 % (GOOD); XMV(8) = 46.5 % (GOOD). Active alarms: EX-AL-OUTLET-RESPONSE on TEP_SEPARATOR_STRIPPER. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_SEPARATOR_STRIPPER"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-AR01-S01",
+      "EX-CARD-AR01-S02",
+      "EX-CARD-AR01-S03",
+      "EX-CARD-AR01-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-UF01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.5: XMEAS(13) = 2638 kPa(g) (GOOD); XMEAS(21) = 94.8 °C (GOOD); XMEAS(7) = 2776 kPa(g) (GOOD); XMEAS(9) = 120.6 °C (GOOD). Active alarms: EX-AL-PRESSURE-DIFFERENCE on TEP_REACTOR_SEPARATOR. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_REACTOR_SEPARATOR"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-UF01-S01",
+      "EX-CARD-UF01-S02",
+      "EX-CARD-UF01-S03",
+      "EX-CARD-UF01-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-FC01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.5: XMEAS(2) = 3423 kg/h (GOOD); XMEAS(3) = 4509 kg/h (GOOD); XMEAS(6) = 42.1 kscmh (GOOD); XMV(1) = 63.1 % (GOOD). Active alarms: EX-AL-FEED-FLOW-TREND on TEP_FEED. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_FEED"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-FC01-S01",
+      "EX-CARD-FC01-S02",
+      "EX-CARD-FC01-S03",
+      "EX-CARD-FC01-S04"
+    ]
+  },
+  {
+    "case_id": "EX-CASE-IN01",
+    "query": "Process mode EX_FIX_M1. Public observations at simulation hour 2.49: XMEAS(15) = 50.1 % (GOOD); XMEAS(17) = 22.92 m³/h (GOOD); XMEAS(40) = 47.3 mol % (BAD); XMEAS(41) = 43.8 mol % (GOOD). Active alarms: EX-AL-ANALYZER-QUALITY on TEP_STRIPPER. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "EX_FIX_M1",
+      "equipment": "TEP_STRIPPER"
+    },
+    "expected_active_card_clauses": [
+      "EX-CARD-IN01-S01",
+      "EX-CARD-IN01-S02",
+      "EX-CARD-IN01-S03",
+      "EX-CARD-IN01-S04"
+    ]
+  },
+  {
+    "case_id": "SP-RATE",
+    "query": "Process mode SP_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(12) = 49.9 % (GOOD); XMEAS(15) = 50.1 % (GOOD); XMEAS(17) = 22.42 m3/h (GOOD); XMEAS(40) = 53.72 mol % (GOOD); XMEAS(41) = 43.83 mol % (GOOD); XMEAS(7) = 2705.7 kPa(g) (GOOD); XMEAS(8) = 74.9 % (GOOD); XMEAS(9) = 120.4 °C (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "SP_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "SP-RATE-S1",
+      "SP-RATE-S2",
+      "SP-RATE-S3",
+      "SP-RATE-S4",
+      "SP-RATE-S5"
+    ]
+  },
+  {
+    "case_id": "SP-MIX",
+    "query": "Process mode SP_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(12) = 49.9 % (GOOD); XMEAS(15) = 50.1 % (GOOD); XMEAS(17) = 22.92 m3/h (GOOD); XMEAS(40) = 53.72 mol % (GOOD); XMEAS(41) = 43.83 mol % (GOOD); XMEAS(7) = 2705.7 kPa(g) (GOOD); XMEAS(8) = 74.9 % (GOOD); XMEAS(9) = 120.4 °C (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "SP_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "SP-MIX-S1",
+      "SP-MIX-S2",
+      "SP-MIX-S3",
+      "SP-MIX-S4",
+      "SP-MIX-S5"
+    ]
+  },
+  {
+    "case_id": "SP-PRESS",
+    "query": "Process mode SP_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(10) = 0.393 kscmh (GOOD); XMEAS(12) = 49.9 % (GOOD); XMEAS(15) = 50.1 % (GOOD); XMEAS(17) = 22.88 m3/h (GOOD); XMEAS(7) = 2692.0 kPa(g) (GOOD); XMEAS(8) = 74.9 % (GOOD); XMEAS(9) = 120.4 °C (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "SP_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "SP-PRESS-S1",
+      "SP-PRESS-S2",
+      "SP-PRESS-S3",
+      "SP-PRESS-S4",
+      "SP-PRESS-S5"
+    ]
+  },
+  {
+    "case_id": "SP-MODE",
+    "query": "Process mode SP_MODE1_TRAINING. Public observations at simulation hour 1.2: XMEAS(12) = 49.9 % (GOOD); XMEAS(15) = 50.1 % (GOOD); XMEAS(17) = 22.95 m3/h (GOOD); XMEAS(40) = 53.72 mol % (GOOD); XMEAS(41) = 43.83 mol % (GOOD); XMEAS(7) = 2705.7 kPa(g) (GOOD); XMEAS(8) = 74.9 % (GOOD); XMEAS(9) = 120.4 °C (GOOD). Active alarms: none published. Which current procedure covers these observations and what evidence or authorization should be checked?",
+    "filters": {
+      "process_mode": "SP_MODE1_TRAINING"
+    },
+    "expected_active_card_clauses": [
+      "SP-MODE-S1",
+      "SP-MODE-S2",
+      "SP-MODE-S3",
+      "SP-MODE-S4",
+      "SP-MODE-S5"
+    ]
+  }
+]

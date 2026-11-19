@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "protocol_revision": "tep-rag-demo.1",
+  "catalog_canonical_sha256": "2993b848d3d6327b0fe8ae784acc1f97b6de83ac450adad49a9b6c20e3b061f7",
+  "corpus_canonical_sha256": "c2369ca79ea60cfdad8179bf321c4c7acd6b7e3db5b85186bb98ebcdcb9d37b9",
+  "clauses": 89,
+  "public_episodes": 23,
+  "opening_actions": {
+    "REQUEST_INFO": 23
+  },
+  "after_lookup_actions": {
+    "PROVIDE_SOP": 21,
+    "ESCALATE": 2
+  },
+  "variants": {
+    "wrong-revision": {
+      "case_id": "HX-CASE-R01",
+      "actions": [
+        "RETRIEVE_AGAIN",
+        "ESCALATE"
+      ]
+    },
+    "unavailable": {
+      "case_id": "HX-CASE-R01",
+      "actions": [
+        "REQUEST_INFO",
+        "ESCALATE"
+      ]
+    },
+    "stale-reading": {
+      "case_id": "HX-CASE-R01",
+      "actions": [
+        "REQUEST_INFO",
+        "ESCALATE"
+      ]
+    },
+    "bad-reading": {
+      "case_id": "HX-CASE-R01",
+      "actions": [
+        "REQUEST_INFO",
+        "ESCALATE"
+      ]
+    },
+    "invalid-approval": {
+      "case_id": "SP-RATE",
+      "actions": [
+        "REQUEST_INFO",
+        "ESCALATE"
+      ]
+    },
+    "close-without-signoff": {
+      "case_id": "SP-RATE",
+      "actions": [
+        "REQUEST_INFO",
+        "REQUEST_INFO"
+      ]
+    },
+    "feed-closure-without-signoff": {
+      "case_id": "FD-A-FLOW",
+      "status": "OPEN"
+    }
+  }
+}

@@ -1,0 +1,921 @@
+{
+  "corpus_sha256": "eb66908b058adcd1037ccf14907aca9d5e42ef795a7906475a227670710cca91",
+  "probes_sha256": "4c2e84ffce9d3631f6fe2a6a6d2243a02c53ce9742bfd3fd1b76efb91eb58311",
+  "device": "cpu",
+  "qdrant_backend": "embedded",
+  "candidate_limit": 20,
+  "result_limit": 5,
+  "row_count": 89,
+  "scope": "public scenario replay; expected active card scored after retrieval",
+  "modes": {
+    "bm25": {
+      "case_count": 23,
+      "top1": 11,
+      "top5": 19,
+      "median_query_ms": 1.8366250151302665,
+      "cases": [
+        {
+          "case_id": "FD-A-FLOW",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-B-TREND-S3"
+          ],
+          "top1": false,
+          "top5": false,
+          "total_ms": 2.422207995550707
+        },
+        {
+          "case_id": "FD-AC-FLOW",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-B-TREND-S3"
+          ],
+          "top1": false,
+          "top5": false,
+          "total_ms": 1.807624998036772
+        },
+        {
+          "case_id": "FD-A-C-RATIO",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-B-TREND-S3"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.827083993703127
+        },
+        {
+          "case_id": "FD-B-TREND",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-B-TREND-S3"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.7294579884037375
+        },
+        {
+          "case_id": "FD-MIXED-COMPOSITION",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-B-TREND-S3"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.753374992404133
+        },
+        {
+          "case_id": "FD-D-TEMP",
+          "top_ids": [
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-A-C-RATIO-S1"
+          ],
+          "top1": false,
+          "top5": false,
+          "total_ms": 1.8366250151302665
+        },
+        {
+          "case_id": "FD-AC-TEMP",
+          "top_ids": [
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-A-C-RATIO-S1"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.8909999926108867
+        },
+        {
+          "case_id": "HX-CASE-R01",
+          "top_ids": [
+            "HX-CARD-R01-S01",
+            "HX-CARD-R02-S01",
+            "HX-CARD-R01-S04",
+            "HX-CARD-R02-S04",
+            "HX-CARD-R01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.9051670096814632
+        },
+        {
+          "case_id": "HX-CASE-R02",
+          "top_ids": [
+            "HX-CARD-R01-S01",
+            "HX-CARD-R02-S01",
+            "HX-CARD-R01-S04",
+            "HX-CARD-R02-S04",
+            "HX-CARD-R01-S03"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.9327920163050294
+        },
+        {
+          "case_id": "HX-CASE-C01",
+          "top_ids": [
+            "HX-CARD-C01-S01",
+            "HX-CARD-C02-S01",
+            "HX-CARD-C01-S04",
+            "HX-CARD-C02-S04",
+            "HX-CARD-C01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.7419579962734133
+        },
+        {
+          "case_id": "HX-CASE-C02",
+          "top_ids": [
+            "HX-CARD-C01-S01",
+            "HX-CARD-C02-S01",
+            "HX-CARD-C01-S04",
+            "HX-CARD-C02-S04",
+            "HX-CARD-C01-S03"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.7410420114174485
+        },
+        {
+          "case_id": "EX-CASE-RQ01",
+          "top_ids": [
+            "EX-CARD-RQ01-S02",
+            "EX-CARD-RH01-S01",
+            "EX-CARD-RQ01-S01",
+            "EX-CARD-RQ01-S04",
+            "EX-CARD-RH01-S04"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 2.354791999096051
+        },
+        {
+          "case_id": "EX-CASE-SH01",
+          "top_ids": [
+            "EX-CARD-IN01-S02",
+            "EX-CARD-SH01-S02",
+            "EX-CARD-IN01-S01",
+            "EX-CARD-SH01-S01",
+            "EX-CARD-SH01-S04"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.9993330060970038
+        },
+        {
+          "case_id": "EX-CASE-RH01",
+          "top_ids": [
+            "EX-CARD-RQ01-S02",
+            "EX-CARD-RH01-S01",
+            "EX-CARD-RQ01-S01",
+            "EX-CARD-RH01-S04",
+            "EX-CARD-RH01-S02"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.876374997664243
+        },
+        {
+          "case_id": "EX-CASE-CH01",
+          "top_ids": [
+            "EX-CARD-CH01-S01",
+            "EX-CARD-CH01-S04",
+            "EX-CARD-CH01-S03",
+            "EX-CARD-CH01-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.7299159953836352
+        },
+        {
+          "case_id": "EX-CASE-AR01",
+          "top_ids": [
+            "EX-CARD-AR01-S04",
+            "EX-CARD-AR01-S01",
+            "EX-CARD-AR01-S03",
+            "EX-CARD-AR01-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.8058749847114086
+        },
+        {
+          "case_id": "EX-CASE-UF01",
+          "top_ids": [
+            "EX-CARD-UF01-S04",
+            "EX-CARD-UF01-S01",
+            "EX-CARD-UF01-S03",
+            "EX-CARD-UF01-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.9430830143392086
+        },
+        {
+          "case_id": "EX-CASE-FC01",
+          "top_ids": [
+            "EX-CARD-FC01-S01",
+            "EX-CARD-FC01-S04",
+            "EX-CARD-FC01-S02",
+            "EX-CARD-FC01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.9189999729860574
+        },
+        {
+          "case_id": "EX-CASE-IN01",
+          "top_ids": [
+            "EX-CARD-IN01-S02",
+            "EX-CARD-IN01-S03",
+            "EX-CARD-IN01-S01",
+            "EX-CARD-SH01-S01",
+            "EX-CARD-IN01-S04"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.8689169955905527
+        },
+        {
+          "case_id": "SP-RATE",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S3",
+            "SP-MIX-S1",
+            "SP-MODE-S1",
+            "SP-MIX-S4"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1.6789580113254488
+        },
+        {
+          "case_id": "SP-MIX",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S3",
+            "SP-MIX-S1",
+            "SP-MODE-S1",
+            "SP-MIX-S4"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.8142079934477806
+        },
+        {
+          "case_id": "SP-PRESS",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S3",
+            "SP-MIX-S1",
+            "SP-MODE-S1",
+            "SP-MIX-S4"
+          ],
+          "top1": false,
+          "top5": false,
+          "total_ms": 1.9532909791450948
+        },
+        {
+          "case_id": "SP-MODE",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S3",
+            "SP-MIX-S1",
+            "SP-MODE-S1",
+            "SP-MIX-S4"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1.7951670160982758
+        }
+      ]
+    },
+    "hybrid": {
+      "case_count": 23,
+      "top1": 10,
+      "top5": 22,
+      "median_query_ms": 150.33116700942628,
+      "cases": [
+        {
+          "case_id": "FD-A-FLOW",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-D-TEMP-S2",
+            "FD-AC-TEMP-S1",
+            "FD-AC-FLOW-S1",
+            "FD-A-FLOW-S3"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 144.30345900473185
+        },
+        {
+          "case_id": "FD-AC-FLOW",
+          "top_ids": [
+            "FD-AC-FLOW-S1",
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-AC-TEMP-S1",
+            "FD-D-TEMP-S2",
+            "FD-MIXED-COMPOSITION-S1"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 142.67679199110717
+        },
+        {
+          "case_id": "FD-A-C-RATIO",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-AC-TEMP-S1",
+            "FD-D-TEMP-S2",
+            "FD-A-C-RATIO-S2",
+            "FD-MIXED-COMPOSITION-S1"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 151.7984580132179
+        },
+        {
+          "case_id": "FD-B-TREND",
+          "top_ids": [
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-A-C-RATIO-S2",
+            "FD-A-FLOW-S3",
+            "FD-MIXED-COMPOSITION-S1"
+          ],
+          "top1": false,
+          "top5": false,
+          "total_ms": 168.8872080121655
+        },
+        {
+          "case_id": "FD-MIXED-COMPOSITION",
+          "top_ids": [
+            "FD-AC-TEMP-S1",
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-D-TEMP-S2",
+            "FD-A-C-RATIO-S2",
+            "FD-MIXED-COMPOSITION-S1"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 165.629249997437
+        },
+        {
+          "case_id": "FD-D-TEMP",
+          "top_ids": [
+            "FD-AC-TEMP-S1",
+            "FD-D-TEMP-S2",
+            "FD-A-FLOW-S3",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-MIXED-COMPOSITION-S2"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 134.96095800655894
+        },
+        {
+          "case_id": "FD-AC-TEMP",
+          "top_ids": [
+            "FD-AC-TEMP-S1",
+            "FD-D-TEMP-S2",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-A-C-RATIO-S2",
+            "FD-MIXED-COMPOSITION-S2"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 169.52399999718182
+        },
+        {
+          "case_id": "HX-CASE-R01",
+          "top_ids": [
+            "HX-CARD-R01-S01",
+            "HX-CARD-R02-S01",
+            "HX-CARD-R01-S03",
+            "HX-CARD-R01-S04",
+            "HX-CARD-R02-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 135.49741700990126
+        },
+        {
+          "case_id": "HX-CASE-R02",
+          "top_ids": [
+            "HX-CARD-R01-S01",
+            "HX-CARD-R02-S01",
+            "HX-CARD-R01-S03",
+            "HX-CARD-R02-S04",
+            "HX-CARD-R01-S04"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 140.79733300604858
+        },
+        {
+          "case_id": "HX-CASE-C01",
+          "top_ids": [
+            "HX-CARD-C02-S01",
+            "HX-CARD-C01-S01",
+            "HX-CARD-C01-S03",
+            "HX-CARD-C01-S04",
+            "HX-CARD-C01-S02"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 127.45954201091081
+        },
+        {
+          "case_id": "HX-CASE-C02",
+          "top_ids": [
+            "HX-CARD-C01-S01",
+            "HX-CARD-C01-S03",
+            "HX-CARD-C02-S01",
+            "HX-CARD-C02-S02",
+            "HX-CARD-C01-S04"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 142.74183398811147
+        },
+        {
+          "case_id": "EX-CASE-RQ01",
+          "top_ids": [
+            "EX-CARD-RH01-S01",
+            "EX-CARD-RQ01-S02",
+            "EX-CARD-RQ01-S01",
+            "EX-CARD-RH01-S04",
+            "EX-CARD-RQ01-S04"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 150.33116700942628
+        },
+        {
+          "case_id": "EX-CASE-SH01",
+          "top_ids": [
+            "EX-CARD-SH01-S01",
+            "EX-CARD-IN01-S02",
+            "EX-CARD-IN01-S01",
+            "EX-CARD-SH01-S02",
+            "EX-CARD-SH01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 124.48683299589902
+        },
+        {
+          "case_id": "EX-CASE-RH01",
+          "top_ids": [
+            "EX-CARD-RH01-S01",
+            "EX-CARD-RQ01-S01",
+            "EX-CARD-RQ01-S02",
+            "EX-CARD-RH01-S04",
+            "EX-CARD-RH01-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 151.7760830174666
+        },
+        {
+          "case_id": "EX-CASE-CH01",
+          "top_ids": [
+            "EX-CARD-CH01-S01",
+            "EX-CARD-CH01-S04",
+            "EX-CARD-CH01-S03",
+            "EX-CARD-CH01-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 163.51595800369978
+        },
+        {
+          "case_id": "EX-CASE-AR01",
+          "top_ids": [
+            "EX-CARD-AR01-S01",
+            "EX-CARD-AR01-S04",
+            "EX-CARD-AR01-S02",
+            "EX-CARD-AR01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 154.23787498730235
+        },
+        {
+          "case_id": "EX-CASE-UF01",
+          "top_ids": [
+            "EX-CARD-UF01-S01",
+            "EX-CARD-UF01-S04",
+            "EX-CARD-UF01-S03",
+            "EX-CARD-UF01-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 143.82141598616727
+        },
+        {
+          "case_id": "EX-CASE-FC01",
+          "top_ids": [
+            "EX-CARD-FC01-S01",
+            "EX-CARD-FC01-S04",
+            "EX-CARD-FC01-S02",
+            "EX-CARD-FC01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 126.4549579937011
+        },
+        {
+          "case_id": "EX-CASE-IN01",
+          "top_ids": [
+            "EX-CARD-SH01-S01",
+            "EX-CARD-IN01-S02",
+            "EX-CARD-IN01-S01",
+            "EX-CARD-IN01-S03",
+            "EX-CARD-SH01-S04"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 126.97379098972306
+        },
+        {
+          "case_id": "SP-RATE",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S1",
+            "SP-MIX-S3",
+            "SP-MODE-S1",
+            "SP-PRESS-S1"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 154.3917499948293
+        },
+        {
+          "case_id": "SP-MIX",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S1",
+            "SP-MIX-S3",
+            "SP-MODE-S1",
+            "SP-PRESS-S1"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 162.5402909994591
+        },
+        {
+          "case_id": "SP-PRESS",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S3",
+            "SP-MIX-S1",
+            "SP-MODE-S1",
+            "SP-PRESS-S1"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 155.48758298973553
+        },
+        {
+          "case_id": "SP-MODE",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S1",
+            "SP-MIX-S3",
+            "SP-MODE-S1",
+            "SP-PRESS-S1"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 161.12520801834762
+        }
+      ]
+    },
+    "hybrid_rerank": {
+      "case_count": 23,
+      "top1": 12,
+      "top5": 21,
+      "median_query_ms": 2285.3925000235904,
+      "cases": [
+        {
+          "case_id": "FD-A-FLOW",
+          "top_ids": [
+            "FD-A-FLOW-S3",
+            "FD-AC-FLOW-S1",
+            "FD-A-FLOW-S2",
+            "FD-AC-FLOW-S3",
+            "FD-D-TEMP-S1"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 4987.053666001884
+        },
+        {
+          "case_id": "FD-AC-FLOW",
+          "top_ids": [
+            "FD-AC-FLOW-S1",
+            "FD-A-FLOW-S3",
+            "FD-A-FLOW-S2",
+            "FD-AC-FLOW-S3",
+            "FD-D-TEMP-S1"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 5109.937291010283
+        },
+        {
+          "case_id": "FD-A-C-RATIO",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-AC-TEMP-S2",
+            "FD-A-FLOW-S2",
+            "FD-A-C-RATIO-S2"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 5962.8270419780165
+        },
+        {
+          "case_id": "FD-B-TREND",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-AC-TEMP-S2",
+            "FD-AC-TEMP-S1",
+            "FD-A-FLOW-S2"
+          ],
+          "top1": false,
+          "top5": false,
+          "total_ms": 6853.881708986592
+        },
+        {
+          "case_id": "FD-MIXED-COMPOSITION",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-AC-TEMP-S2",
+            "FD-A-C-RATIO-S2",
+            "FD-A-FLOW-S2"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 6335.946167004295
+        },
+        {
+          "case_id": "FD-D-TEMP",
+          "top_ids": [
+            "FD-A-FLOW-S2",
+            "FD-A-FLOW-S3",
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-B-TREND-S2",
+            "FD-MIXED-COMPOSITION-S1"
+          ],
+          "top1": false,
+          "top5": false,
+          "total_ms": 4824.230584024917
+        },
+        {
+          "case_id": "FD-AC-TEMP",
+          "top_ids": [
+            "FD-MIXED-COMPOSITION-S2",
+            "FD-MIXED-COMPOSITION-S1",
+            "FD-AC-TEMP-S2",
+            "FD-A-FLOW-S2",
+            "FD-A-C-RATIO-S2"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 6456.01108300616
+        },
+        {
+          "case_id": "HX-CASE-R01",
+          "top_ids": [
+            "HX-CARD-R01-S01",
+            "HX-CARD-R02-S01",
+            "HX-CARD-R01-S04",
+            "HX-CARD-R02-S04",
+            "HX-CARD-R01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1797.0093750045635
+        },
+        {
+          "case_id": "HX-CASE-R02",
+          "top_ids": [
+            "HX-CARD-R01-S01",
+            "HX-CARD-R02-S01",
+            "HX-CARD-R01-S04",
+            "HX-CARD-R02-S04",
+            "HX-CARD-R01-S03"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1990.150875004474
+        },
+        {
+          "case_id": "HX-CASE-C01",
+          "top_ids": [
+            "HX-CARD-C01-S01",
+            "HX-CARD-C02-S01",
+            "HX-CARD-C01-S03",
+            "HX-CARD-C01-S02",
+            "HX-CARD-C02-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1710.2435000124387
+        },
+        {
+          "case_id": "HX-CASE-C02",
+          "top_ids": [
+            "HX-CARD-C01-S01",
+            "HX-CARD-C02-S01",
+            "HX-CARD-C01-S03",
+            "HX-CARD-C01-S02",
+            "HX-CARD-C02-S02"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 2123.333666007966
+        },
+        {
+          "case_id": "EX-CASE-RQ01",
+          "top_ids": [
+            "EX-CARD-RH01-S01",
+            "EX-CARD-RQ01-S01",
+            "EX-CARD-RQ01-S03",
+            "EX-CARD-RQ01-S02",
+            "EX-CARD-RH01-S04"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 2191.567458998179
+        },
+        {
+          "case_id": "EX-CASE-SH01",
+          "top_ids": [
+            "EX-CARD-IN01-S01",
+            "EX-CARD-SH01-S01",
+            "EX-CARD-SH01-S02",
+            "EX-CARD-SH01-S04",
+            "EX-CARD-SH01-S03"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 1730.0637080043089
+        },
+        {
+          "case_id": "EX-CASE-RH01",
+          "top_ids": [
+            "EX-CARD-RH01-S01",
+            "EX-CARD-RQ01-S01",
+            "EX-CARD-RH01-S04",
+            "EX-CARD-RH01-S02",
+            "EX-CARD-RQ01-S04"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 2285.3925000235904
+        },
+        {
+          "case_id": "EX-CASE-CH01",
+          "top_ids": [
+            "EX-CARD-CH01-S01",
+            "EX-CARD-CH01-S04",
+            "EX-CARD-CH01-S03",
+            "EX-CARD-CH01-S02"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1185.8258340216707
+        },
+        {
+          "case_id": "EX-CASE-AR01",
+          "top_ids": [
+            "EX-CARD-AR01-S01",
+            "EX-CARD-AR01-S04",
+            "EX-CARD-AR01-S02",
+            "EX-CARD-AR01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1088.6134169995785
+        },
+        {
+          "case_id": "EX-CASE-UF01",
+          "top_ids": [
+            "EX-CARD-UF01-S01",
+            "EX-CARD-UF01-S02",
+            "EX-CARD-UF01-S04",
+            "EX-CARD-UF01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 965.2711670205463
+        },
+        {
+          "case_id": "EX-CASE-FC01",
+          "top_ids": [
+            "EX-CARD-FC01-S01",
+            "EX-CARD-FC01-S04",
+            "EX-CARD-FC01-S02",
+            "EX-CARD-FC01-S03"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1059.6114170039073
+        },
+        {
+          "case_id": "EX-CASE-IN01",
+          "top_ids": [
+            "EX-CARD-IN01-S01",
+            "EX-CARD-SH01-S01",
+            "EX-CARD-SH01-S04",
+            "EX-CARD-IN01-S02",
+            "EX-CARD-IN01-S04"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 1711.720791994594
+        },
+        {
+          "case_id": "SP-RATE",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S4",
+            "SP-PRESS-S4",
+            "SP-RATE-S4",
+            "SP-MODE-S4"
+          ],
+          "top1": true,
+          "top5": true,
+          "total_ms": 5400.952916010283
+        },
+        {
+          "case_id": "SP-MIX",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S4",
+            "SP-PRESS-S4",
+            "SP-RATE-S4",
+            "SP-MODE-S4"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 5518.090333003784
+        },
+        {
+          "case_id": "SP-PRESS",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S4",
+            "SP-RATE-S4",
+            "SP-MODE-S4",
+            "SP-PRESS-S4"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 5182.755000016186
+        },
+        {
+          "case_id": "SP-MODE",
+          "top_ids": [
+            "SP-RATE-S1",
+            "SP-MIX-S4",
+            "SP-PRESS-S4",
+            "SP-RATE-S4",
+            "SP-MODE-S4"
+          ],
+          "top1": false,
+          "top5": true,
+          "total_ms": 5420.155625004554
+        }
+      ]
+    }
+  }
+}

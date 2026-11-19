@@ -1,0 +1,13 @@
+{
+  "protocol_revision": "tep-rag-demo.1",
+  "snapshot_sha256": {
+    "tep_protocol.json": "258138f1cf096f282cbdc4f2bb49f24d8a34b854aebe2bf7eb723b2669a2fc9a",
+    "rag_corpus.json": "eb66908b058adcd1037ccf14907aca9d5e42ef795a7906475a227670710cca91",
+    "public_episodes.json": "1d0434c86dacbc35bcbdbe998e922529d760333221d9a4ca203d70d896aa1ec5",
+    "public_episode.json": "97817d4ffe519975fcd425437776cf58d99802fb8707de06bc3a9f7ee6584f8c",
+    "eval_cases.json": "6ca40b1abc2249347aa6951819ef9d285ea7838af26d463324aee0aedad4ca5e",
+    "verify_protocol.py": "d012b53a0e454e6260ada5170e13fde9cd77097c4a088e4da9ea2976538e2c7f"
+  },
+  "source": "Team-authored TEP simulation procedures with source references in tep_protocol.json",
+  "verification": "verify_protocol.py validates the catalog and replays deterministic decisions from recorded synthetic fixtures"
+}

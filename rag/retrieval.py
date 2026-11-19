@@ -147,9 +147,13 @@ def _validate_rows(rows):
     copied = deepcopy(list(rows))
     seen = set()
     for row in copied:
-        for field in ("id", "text", "equipment", "kind", "revision", "ko"):
+        for field in ("id", "text", "equipment", "kind", "revision"):
             if not isinstance(row.get(field), str) or not row[field].strip():
                 raise ValueError(f"Each corpus row needs a nonempty {field}")
+        # English-only PDF references are searchable before anyone translates them.
+        ko = row.get("ko")
+        if not isinstance(ko, str) or (row["kind"] != "reference" and not ko.strip()):
+            raise ValueError("Procedure rows need Korean text; references may have an empty translation")
         if row["id"] in seen:
             raise ValueError(f"Duplicate corpus ID: {row['id']}")
         seen.add(row["id"])
